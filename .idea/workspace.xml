@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Ilya" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statusbar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,13 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Kostian\PycharmProjects\OOP\.idea" />
+      </set>
+    </option>
+  </component>
   <component name="JupyterTrust" id="4d6a6919-9c69-49f7-bab5-5688712c3687" />
   <component name="ProjectId" id="1Z4oOfpWgkDNzuGiQER42m1lkzW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -35,6 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/flake8/__main__.py" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
@@ -155,11 +165,23 @@
       <workItem from="1585340425087" duration="1263000" />
       <workItem from="1585573390854" duration="1897000" />
       <workItem from="1585579327967" duration="409000" />
+      <workItem from="1585589826749" duration="660000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584108269745">
@@ -178,30 +200,30 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="794" y="179" width="461" height="484" key="#com.intellij.tools.ToolEditorDialog/0.0.1280.688@0.0.1280.688" timestamp="1585574192046" />
-    <state x="265" y="0" key="CommitChangelistDialog2" timestamp="1585579879446">
+    <state x="265" y="0" key="CommitChangelistDialog2" timestamp="1585590526416">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1585579879446" />
+    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1585590526416" />
     <state x="360" y="108" key="FileChooserDialogImpl" timestamp="1585574013007">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="360" y="108" key="FileChooserDialogImpl/0.0.1280.688@0.0.1280.688" timestamp="1585574013007" />
-    <state width="1237" height="206" key="GridCell.Tab.0.bottom" timestamp="1585341770355">
+    <state width="618" height="72" key="GridCell.Tab.0.bottom" timestamp="1585590381851">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="206" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1585341770355" />
-    <state width="1237" height="206" key="GridCell.Tab.0.center" timestamp="1585341770355">
+    <state width="618" height="72" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1585590381851" />
+    <state width="618" height="72" key="GridCell.Tab.0.center" timestamp="1585590381851">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="206" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1585341770355" />
-    <state width="1237" height="206" key="GridCell.Tab.0.left" timestamp="1585341770355">
+    <state width="618" height="72" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1585590381851" />
+    <state width="618" height="72" key="GridCell.Tab.0.left" timestamp="1585590381851">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="206" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1585341770355" />
-    <state width="1237" height="206" key="GridCell.Tab.0.right" timestamp="1585341770355">
+    <state width="618" height="72" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1585590381851" />
+    <state width="618" height="72" key="GridCell.Tab.0.right" timestamp="1585590381851">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="206" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1585341770355" />
+    <state width="618" height="72" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1585590381851" />
     <state x="164" y="0" key="SettingsEditor" timestamp="1585574587959">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -218,7 +240,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/OOP$random_stuff.coverage" NAME="random_stuff Coverage Results" MODIFIED="1584138258413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OOP$game.coverage" NAME="game Coverage Results" MODIFIED="1585341610819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/OOP$Main_window.coverage" NAME="Main_window Coverage Results" MODIFIED="1585341637421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OOP$Main_window.coverage" NAME="Main_window Coverage Results" MODIFIED="1585590381842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OOP$bottom.coverage" NAME="bottom Coverage Results" MODIFIED="1584211564836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
