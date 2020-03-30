@@ -10,7 +10,6 @@ background_image = pygame.image.load('images/background.jpeg')
 pygame.display.set_caption('Studogochi')
 
 WHITE = (255, 255, 255)
-run = True
 
 screen.blit(background_image, (0, 0))
 
@@ -29,11 +28,16 @@ button_health.draw(screen)
 
 pygame.display.update()
 
+run = True
 while run:
     clock.tick(60)
     pygame.time.delay(100)
     for event in pygame.event.get():
+        pos = pygame.mouse.get_pos()
+        click = pygame.mouse.get_pressed()
+
         if event.type == pygame.QUIT:
             run = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
+
+        elif (button_health.push(pos[0], pos[1], click[0], screen) is True):
             statusbar_health.update_status(10, screen)

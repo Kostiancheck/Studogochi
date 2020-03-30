@@ -2,6 +2,7 @@ import pygame
 from game_object import GameObject
 from abc import ABC, abstractmethod
 from statusbar import StatusHealth
+import time
 
 
 class AButton(GameObject, ABC):
@@ -15,6 +16,24 @@ class AButton(GameObject, ABC):
     def draw(self, surface):
         pygame.draw.circle(surface, self.color, (self.bounds.x, self.bounds.y),
                            self.radius)  # bounds is instance of class Rect wich is used in GameObject
+
+    def push(self, mouse_x, mouse_y, mouse_click, surface):
+        if (self.bounds.x + self.radius > mouse_x > self.bounds.x - self.radius and
+              self.bounds.y + self.radius > mouse_y > self.bounds.y - self.radius and
+              mouse_click == 1):
+
+            # Change button's color
+            pushed_mouse_color = (0, 191, 255)
+            self.color, pushed_mouse_color = pushed_mouse_color, self.color
+            self.draw(surface)
+            pygame.display.update()
+            time.sleep(0.2)
+            self.color, pushed_mouse_color = pushed_mouse_color, self.color
+            self.draw(surface)
+            pygame.display.update()
+
+            return True
+
 
     @abstractmethod
     def increase(self, attribute):
