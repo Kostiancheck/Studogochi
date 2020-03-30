@@ -28,4 +28,4 @@ class ButtonHealth(AButton):
         AButton.__init__(self, x, y, radius, color)
 
     def increase(self, surface):
-        StatusHealth.update_status(10, surface, surface)
+        StatusHealth.update_status(10, surface)

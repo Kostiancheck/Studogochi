@@ -37,4 +37,3 @@ while run:
             run = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             statusbar_health.update_status(10, screen)
-            print(statusbar_health.value)
