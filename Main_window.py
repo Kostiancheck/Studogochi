@@ -14,6 +14,8 @@ pygame.display.set_caption('Studogochi')
 WHITE = (255, 255, 255)
 
 screen.blit(background_image, (0, 0))
+
+
 # THIS SECTION IS FOR STATUSBARS
 statusbar_health = StatusHealth(700, 20, 50, 20, (220, 20, 60), 100, WHITE)
 statusbar_health.draw_rect(screen)
@@ -24,11 +26,8 @@ screen.blit(text, (statusbar_health.bounds.x, statusbar_health.bounds.y))
 
 
 # THIS SECTION IS FOR STUDENT
-gamer = Student(400,300,100,200,'Bob','image.png',[statusbar_health])
-print(gamer.name)
-gamer.name = 'Vadim'
-print(gamer.statistics[0].color)
-
+gamer = Student(500,400,100,200,'Bob','images/student.jpeg',[statusbar_health])
+gamer.draw(screen)
 
 
 

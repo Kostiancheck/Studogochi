@@ -15,7 +15,7 @@ class AButton(GameObject, ABC):
 
     def draw(self, surface):
         pygame.draw.circle(surface, self.color, (self.bounds.x, self.bounds.y),
-                           self.radius)  # bounds is instance of class Rect wich is used in GameObject
+                           self.radius)  # bounds is an instance of class Rect wich is used in GameObject
 
     def push(self, mouse_x, mouse_y, mouse_click, surface):
         if (self.bounds.x + self.radius > mouse_x > self.bounds.x - self.radius and
@@ -34,7 +34,7 @@ class AButton(GameObject, ABC):
 
             return True
 
-            
+
     @abstractmethod
     def increase(self, attribute):
         pass
