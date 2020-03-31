@@ -34,7 +34,7 @@ class AButton(GameObject, ABC):
 
             return True
 
-
+            
     @abstractmethod
     def increase(self, attribute):
         pass
