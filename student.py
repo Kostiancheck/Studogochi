@@ -8,7 +8,7 @@ class Student(GameObject,ABC):
 		GameObject.__init__(self,x,y,width,height)
 		self._name = name 
 		self.image = image
-		self.statistics = statistics
+		self.__statistics = statistics
 		self.font = pygame.font.Font('freesansbold.ttf', 25)
 
 	@property

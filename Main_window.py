@@ -4,6 +4,25 @@ from abc import ABC
 from statusbar import *
 from student import Student
 
+"""
+Лаба 4:
+Необхідно реалізувати:
+принаймні 4 класи, зв’язані наслідуванням;
+принаймні 1 клас із множинним наслідуванням;
+принаймні 2 інтерфейси (контракти);
+принаймні 1 абстрактний клас.
+	Один клас може належати до кількох з цих категорій відразу.
+	Очевидно, необхідно мати змогу пояснити (і показати на прикладах), чому вибрано таку схему наслідування.
+
+#TODO:
+
+1. Реализовать increase через Student
+2. основной класс Game который запускает всё
+3. optional  разделить графическую часть с лагической 
+
+"""
+
+
 
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
@@ -15,7 +34,6 @@ WHITE = (255, 255, 255)
 
 screen.blit(background_image, (0, 0))
 
-
 # THIS SECTION IS FOR STATUSBARS
 statusbar_health = StatusHealth(700, 20, 50, 20, (220, 20, 60), 100, WHITE)
 statusbar_health.draw_rect(screen)
@@ -23,24 +41,19 @@ text = statusbar_health.font.render(str(statusbar_health.value), True, statusbar
                                     statusbar_health.color)
 screen.blit(text, (statusbar_health.bounds.x, statusbar_health.bounds.y))
 
-statusbar_fatigue = StatusFatigue(700, 50, 50, 20, (0,255,0), 100, WHITE)
+statusbar_fatigue = StatusFatigue(700, 50, 50, 20, (0, 255, 0), 100, WHITE)
 statusbar_fatigue.draw_rect(screen)
 text = statusbar_fatigue.font.render(str(statusbar_fatigue.value), True, statusbar_fatigue.txt_color,
-                                    statusbar_fatigue.color)
+                                     statusbar_fatigue.color)
 screen.blit(text, (statusbar_fatigue.bounds.x, statusbar_fatigue.bounds.y))
 
-
-
 # THIS SECTION IS FOR STUDENT
-gamer = Student(500,400,100,200,'Bob','images/student.jpeg',[statusbar_health,statusbar_fatigue])
+gamer = Student(500, 400, 100, 200, 'Bob', 'images/student.jpeg', [statusbar_health, statusbar_fatigue])
 gamer.draw(screen)
-
-
 
 # THIS SECTION IS FOR BUTTONS
 button_health = ButtonHealth(50, 50, 25, WHITE)
 button_health.draw(screen)
-
 
 button_fatigue = ButtonFatigue(50, 150, 25, WHITE)
 button_fatigue.draw(screen)
