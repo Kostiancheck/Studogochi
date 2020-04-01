@@ -48,3 +48,12 @@ class ButtonHealth(AButton):
 
     def increase(self, surface):
         StatusHealth.update_status(10, surface)
+
+class ButtonFatigue(AButton):
+    """This button contols student's health"""
+
+    def __init__(self, x, y, radius, color):
+        AButton.__init__(self, x, y, radius, color)
+
+    def increase(self, surface):
+        StatusFatigue.update_status(10, surface)

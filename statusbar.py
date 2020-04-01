@@ -28,3 +28,7 @@ TOP RIGHT EDGE AND NEXT TWO PARAMETRS IS WIDTH AND HEIGHT"""
 class StatusHealth(AStatusBar):
     def __init__(self, x, y, width, height, color, value, txt_color):
         AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)
+
+class StatusFatigue(AStatusBar):
+    def __init__(self, x, y, width, height, color, value, txt_color):
+        AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)

@@ -1,7 +1,7 @@
 import pygame
-from button import ButtonHealth
+from button import *
 from abc import ABC
-from statusbar import StatusHealth
+from statusbar import *
 from student import Student
 
 
@@ -23,10 +23,16 @@ text = statusbar_health.font.render(str(statusbar_health.value), True, statusbar
                                     statusbar_health.color)
 screen.blit(text, (statusbar_health.bounds.x, statusbar_health.bounds.y))
 
+statusbar_fatigue = StatusFatigue(700, 50, 50, 20, (0,255,0), 100, WHITE)
+statusbar_fatigue.draw_rect(screen)
+text = statusbar_fatigue.font.render(str(statusbar_fatigue.value), True, statusbar_fatigue.txt_color,
+                                    statusbar_fatigue.color)
+screen.blit(text, (statusbar_fatigue.bounds.x, statusbar_fatigue.bounds.y))
+
 
 
 # THIS SECTION IS FOR STUDENT
-gamer = Student(500,400,100,200,'Bob','images/student.jpeg',[statusbar_health])
+gamer = Student(500,400,100,200,'Bob','images/student.jpeg',[statusbar_health,statusbar_fatigue])
 gamer.draw(screen)
 
 
@@ -34,6 +40,10 @@ gamer.draw(screen)
 # THIS SECTION IS FOR BUTTONS
 button_health = ButtonHealth(50, 50, 25, WHITE)
 button_health.draw(screen)
+
+
+button_fatigue = ButtonFatigue(50, 150, 25, WHITE)
+button_fatigue.draw(screen)
 
 pygame.display.update()
 
@@ -50,3 +60,6 @@ while run:
 
         elif (button_health.push(pos[0], pos[1], click[0], screen) is True):
             statusbar_health.update_status(10, screen)
+
+        elif (button_fatigue.push(pos[0], pos[1], click[0], screen) is True):
+            statusbar_fatigue.update_status(10, screen)
