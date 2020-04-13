@@ -4,8 +4,9 @@ from studogochi import Studogochi
 studogochi = Studogochi()  # Передать параметры, которые мы впихнули в __init__
 studogochi.run()
 
+
+# TODO
 '''
-todo list:
 1. разделить по MVC
 2. доделать кнопки и статусбары
 3. сделать decrease по таймеру

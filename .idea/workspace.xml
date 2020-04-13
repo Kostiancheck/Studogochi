@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="In Student class statistic is private now (statistic -&gt; __statistic). Add TODO list in Main_window.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +168,7 @@
       <workItem from="1585749465291" duration="1869000" />
       <workItem from="1586073995320" duration="67000" />
       <workItem from="1586797247084" duration="8771000" />
+      <workItem from="1586809808025" duration="949000" />
     </task>
     <task id="LOCAL-00001" summary="Fix problem with statusbar's value">
       <created>1585590613188</created>
@@ -242,30 +244,30 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="360" y="108" key="FileChooserDialogImpl/0.0.1280.688@0.0.1280.688" timestamp="1585574013007" />
-    <state width="1237" height="234" key="GridCell.Tab.0.bottom" timestamp="1586808008059">
+    <state width="618" height="234" key="GridCell.Tab.0.bottom" timestamp="1586810756935">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="234" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1586808008059" />
-    <state width="1237" height="234" key="GridCell.Tab.0.center" timestamp="1586808008059">
+    <state width="618" height="234" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1586810756935" />
+    <state width="618" height="234" key="GridCell.Tab.0.center" timestamp="1586810756935">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="234" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1586808008059" />
-    <state width="1237" height="234" key="GridCell.Tab.0.left" timestamp="1586808008059">
+    <state width="618" height="234" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1586810756935" />
+    <state width="618" height="234" key="GridCell.Tab.0.left" timestamp="1586810756935">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="234" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1586808008059" />
-    <state width="1237" height="234" key="GridCell.Tab.0.right" timestamp="1586808008059">
+    <state width="618" height="234" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1586810756935" />
+    <state width="618" height="234" key="GridCell.Tab.0.right" timestamp="1586810756935">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="234" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1586808008059" />
+    <state width="618" height="234" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1586810756935" />
     <state x="164" y="0" key="SettingsEditor" timestamp="1585574587959">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1585574587959" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1586807679562">
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1586809856921">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1586807679562" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1586809856921" />
     <state x="450" y="261" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586798024717">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -282,7 +284,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/OOP$random_stuff.coverage" NAME="random_stuff Coverage Results" MODIFIED="1586805775875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OOP$game.coverage" NAME="game Coverage Results" MODIFIED="1585341610819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/OOP$Main_window.coverage" NAME="Main_window Coverage Results" MODIFIED="1586806688487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OOP$Main_window.coverage" NAME="Main_window Coverage Results" MODIFIED="1586809817523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OOP$bottom.coverage" NAME="bottom Coverage Results" MODIFIED="1584211564836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
