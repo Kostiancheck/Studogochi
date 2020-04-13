@@ -9,9 +9,10 @@ class AStatusBar(GameObject, ABC):
         self.color = color
         self.value = value
         self.txt_color = txt_color
+
         self.font = pygame.font.Font('freesansbold.ttf', 12)
 
-    def draw_rect(self, surface):
+    def draw(self, surface):
         pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
 
     def update_status(self, num, surface):

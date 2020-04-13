@@ -24,9 +24,6 @@ class Student(GameObject,ABC):
 		surf = pygame.image.load(self.image)
 		rect = surf.get_rect(bottomright=(self.bounds.x, self.bounds.y))
 		surface.blit(surf, rect)
-		text = self.font.render(str(self._name), True, (255,0,0),
-                                    (255,255,255))
-		surface.blit(text, (self.bounds.x-130, self.bounds.y))
-
-
-
+		text = self.font.render(str(self._name), True, (255, 0, 0),
+								(255, 255, 255))
+		surface.blit(text, (self.bounds.x - 130, self.bounds.y))
