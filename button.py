@@ -16,7 +16,6 @@ class AButton(GameObject, ABC):
     def draw(self, surface):
         pygame.draw.circle(surface, self.color, (self.bounds.x, self.bounds.y),
                            self.radius)  # bounds is an instance of class Rect wich is used in GameObject
-
     def push(self, mouse_x, mouse_y, mouse_click, surface):
         if (self.bounds.x + self.radius > mouse_x > self.bounds.x - self.radius and
               self.bounds.y + self.radius > mouse_y > self.bounds.y - self.radius and
@@ -57,3 +56,28 @@ class ButtonFatigue(AButton):
 
     def increase(self, surface):
         StatusFatigue.update_status(10, surface)
+
+
+class ButtonGrades(AButton):
+    """This button contols student's grades """
+    def __init__(self, x, y, radius, color):
+        AButton.__init__(self, x, y, radius, color)
+    
+    def increase(self, surface):
+        StatusGrades.update_status(5, surface)
+
+class ButtonMoney(AButton):
+    """This button contols student's grades """
+    def __init__(self, x, y, radius, color):
+        AButton.__init__(self, x, y, radius, color)
+    
+    def increase(self, surface):
+        StatusGrades.update_status(10, surface)
+
+class ButtonAlcohol(AButton):
+    """This button contols student's grades """
+    def __init__(self, x, y, radius, color):
+        AButton.__init__(self, x, y, radius, color)
+    
+    def increase(self, surface):
+        StatusGrades.update_status(10, surface)

@@ -33,3 +33,16 @@ class StatusHealth(AStatusBar):
 class StatusFatigue(AStatusBar):
     def __init__(self, x, y, width, height, color, value, txt_color):
         AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)
+
+
+class StatusGrades(AStatusBar):
+    def __init__(self, x, y, width, height, color, value, txt_color):
+        AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)
+
+class StatusMoney(AStatusBar):
+    def __init__(self, x, y, width, height, color, value, txt_color):
+        AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)
+
+class StatusAlcohol(AStatusBar):
+    def __init__(self, x, y, width, height, color, value, txt_color):
+        AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)
