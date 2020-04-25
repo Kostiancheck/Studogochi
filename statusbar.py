@@ -46,3 +46,8 @@ class StatusMoney(AStatusBar):
 class StatusAlcohol(AStatusBar):
     def __init__(self, x, y, width, height, color, value, txt_color):
         AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)
+
+#ADDED
+class Timer(AStatusBar):
+    def __init__(self, x, y, width, height, color, value, txt_color):
+        AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)

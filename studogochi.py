@@ -26,6 +26,7 @@ class Studogochi(Game):
         self.statusbar_grades = StatusGrades(700, 80, 50, 20, (0, 128, 128), 10, WHITE)
         self.statusbar_money = StatusMoney(700, 110, 50, 20, (255, 140, 0), 100, WHITE)
         self.statusbar_alcohol = StatusAlcohol(700, 140, 50, 20, (0, 0, 102), 50, WHITE)
+        self.timer = Timer(370, 10, 55, 25, (255,255,255), 0, (0, 0, 0)) #ADDED
         self.gamer = Student(500, 400, 100, 200, 'Bob', 'images/student.jpeg')
         self.HEALTH_DECREASE = pygame.USEREVENT
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
@@ -62,6 +63,16 @@ class Studogochi(Game):
                                                                      self.statusbar_alcohol.txt_color,
                                                                      self.statusbar_alcohol.color)
         self.screen.blit(statusbar_alcohol_value, (self.statusbar_alcohol.bounds.x, self.statusbar_alcohol.bounds.y))
+
+        #TIMER 
+        buf_time = time.ctime()
+        buf_time_mas = buf_time.split(" ")
+        self.timer.draw(self.screen)
+        timer_value = self.timer.font.render(str(buf_time_mas[3]), True,
+                                            self.timer.txt_color,
+                                            self.timer.color)
+        self.screen.blit(timer_value, (self.timer.bounds.x, self.timer.bounds.y))
+
 
         self.gamer.draw(self.screen)
 
