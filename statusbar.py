@@ -51,3 +51,8 @@ class StatusAlcohol(AStatusBar):
 class Timer(AStatusBar):
     def __init__(self, x, y, width, height, color, value, txt_color):
         AStatusBar.__init__(self, x, y, width, height, color, value, txt_color)
+
+class Clocks:
+    def __init__(self, days, previous_time):
+        self.days = days
+        self.previous_time = previous_time
