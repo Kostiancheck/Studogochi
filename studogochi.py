@@ -29,7 +29,7 @@ class Studogochi(Game):
         self.statusbar_money = StatusMoney(700, 110, 50, 20, (255, 140, 0), 100, WHITE)
         self.statusbar_alcohol = StatusAlcohol(700, 140, 50, 20, (0, 0, 102), 50, WHITE)
         self.timer = Timer(370, 10, 55, 25, (255,255,255), 0, (0, 0, 0)) #ADDED
-        self.clocks = Clocks(1, datetime.datetime.now())
+        self.clocks = Clocks(0, datetime.datetime.now())
         self.gamer = Student(500, 400, 100, 200, 'Bob', 'images/student.jpeg')
         self.HEALTH_DECREASE = pygame.USEREVENT
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
