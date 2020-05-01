@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="In Student class statistic is private now (statistic -&gt; __statistic). Add TODO list in Main_window.py">
+    <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statusbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusbar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/studogochi.py" beforeDir="false" afterPath="$PROJECT_DIR$/studogochi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +175,8 @@
       <workItem from="1587820268359" duration="301000" />
       <workItem from="1587820670754" duration="107000" />
       <workItem from="1587820802438" duration="4276000" />
-      <workItem from="1588353067893" duration="5857000" />
+      <workItem from="1588353067893" duration="6148000" />
+      <workItem from="1588362993497" duration="239000" />
     </task>
     <task id="LOCAL-00001" summary="Fix problem with statusbar's value">
       <created>1585590613188</created>
@@ -201,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586807228541</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Make statistics in Student class and implemented Observer pattern for statusbar-student. Change order of parametres of __init__ function in statusbars.">
+      <created>1588362898060</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588362898060</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +228,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix problem with statusbar's value" />
     <MESSAGE value="In Student class statistic is private now (statistic -&gt; __statistic). Add TODO list in Main_window.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="In Student class statistic is private now (statistic -&gt; __statistic). Add TODO list in Main_window.py" />
+    <MESSAGE value="Make statistics in Student class and implemented Observer pattern for statusbar-student. Change order of parametres of __init__ function in statusbars." />
+    <option name="LAST_COMMIT_MESSAGE" value="Make statistics in Student class and implemented Observer pattern for statusbar-student. Change order of parametres of __init__ function in statusbars." />
   </component>
   <component name="WindowStateProjectService">
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584108269745">
@@ -246,10 +252,10 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="794" y="179" width="461" height="484" key="#com.intellij.tools.ToolEditorDialog/0.0.1280.688@0.0.1280.688" timestamp="1585574192046" />
-    <state x="265" y="0" key="CommitChangelistDialog2" timestamp="1586807999264">
+    <state x="265" y="0" key="CommitChangelistDialog2" timestamp="1588362897384">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1586807999264" />
+    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1588362897384" />
     <state x="122" y="51" key="DiffContextDialog" timestamp="1585593058213">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -258,30 +264,30 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="360" y="108" key="FileChooserDialogImpl/0.0.1280.688@0.0.1280.688" timestamp="1587577581598" />
-    <state width="1237" height="181" key="GridCell.Tab.0.bottom" timestamp="1588362647600">
+    <state width="1237" height="181" key="GridCell.Tab.0.bottom" timestamp="1588362962480">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="181" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1588362647600" />
-    <state width="1237" height="181" key="GridCell.Tab.0.center" timestamp="1588362647600">
+    <state width="1237" height="181" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1588362962480" />
+    <state width="1237" height="181" key="GridCell.Tab.0.center" timestamp="1588362962479">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="181" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1588362647600" />
-    <state width="1237" height="181" key="GridCell.Tab.0.left" timestamp="1588362647600">
+    <state width="1237" height="181" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1588362962479" />
+    <state width="1237" height="181" key="GridCell.Tab.0.left" timestamp="1588362962479">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="181" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1588362647600" />
-    <state width="1237" height="181" key="GridCell.Tab.0.right" timestamp="1588362647600">
+    <state width="1237" height="181" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1588362962479" />
+    <state width="1237" height="181" key="GridCell.Tab.0.right" timestamp="1588362962479">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="181" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1588362647600" />
+    <state width="1237" height="181" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1588362962479" />
     <state x="164" y="0" key="SettingsEditor" timestamp="1587820871808">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1587820871808" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1586809856921">
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1588363019792">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1586809856921" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1588363019792" />
     <state x="450" y="261" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588353073558">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
