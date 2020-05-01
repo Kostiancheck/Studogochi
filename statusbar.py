@@ -34,7 +34,6 @@ class StatusFatigue(AStatusBar):
     def __init__(self, x, y, width, height, color, txt_color, value, surface):
         AStatusBar.__init__(self, x, y, width, height, color, txt_color, value, surface)
 
-
 class StatusGrades(AStatusBar):
     def __init__(self, x, y, width, height, color, txt_color, value, surface):
         AStatusBar.__init__(self, x, y, width, height, color, txt_color, value, surface)
@@ -56,3 +55,21 @@ class Clocks:
     def __init__(self, days, previous_time):
         self.days = days
         self.previous_time = previous_time
+
+class Info_gameover:
+    def __init__(self, x, y, width, height, color, txt_color, value, surface=None):
+        GameObject.__init__(self, x, y, width, height)
+        self.color = color
+        self.value = value
+        self.txt_color = txt_color
+        self.surface = surface
+        self.font = pygame.font.Font('freesansbold.ttf', 20)
+    
+    def draw(self, surface):
+        pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
+
+    def update_status(self, num):
+        self.value = num
+        text = self.font.render(str(self.value), True, self.txt_color, self.color)
+        self.surface.blit(text, (self.bounds.x, self.bounds.y))
+        pygame.display.update()

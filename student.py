@@ -14,9 +14,9 @@ class Student(GameObject, ABC):
                            # Сделать много подпунтков в пункте "Grades"
                            # 'Grades': {'Матеша': 0,
                            # 		'ФП': 0},
-                           'grades': 0,
+                           'grades': 60,
                            'money': 1000,
-                           'alcohol': 10,  # Алкоголь записывать в % (процент спирта в крови)
+                           'alcohol': 10,  # ТУТ БЫЛО 10 Алкоголь записывать в % (процент спирта в крови)
                            }
         self.__subscribers = {}
         self.font = pygame.font.Font('freesansbold.ttf', 25)
@@ -29,7 +29,6 @@ class Student(GameObject, ABC):
         который будет принимать название предмета и оценку'''
         self.statistics['grades'] += grade
         self.__subscribers['grades'].update_status(self.statistics['grades'])
-
 
     def update_statistic(self, characteristic, value):
         self.statistics[characteristic] += value

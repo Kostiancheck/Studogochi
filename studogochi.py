@@ -35,11 +35,14 @@ class Studogochi(Game):
         self.statusbar_alcohol = StatusAlcohol(700, 140, 50, 20, (0, 0, 102), WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
         self.timer = Timer(370, 10, 55, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
+        self.gameover = Info_gameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0)
         self.clocks = Clocks(0, datetime.datetime.now())
         self.HEALTH_DECREASE = pygame.USEREVENT # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
         self.ALCOHOL_DECREASE = pygame.USEREVENT + 3
+        self.game_end = False
+
 
     def draw_all(self):
         self.statusbar_health.draw(self.screen)
@@ -86,6 +89,10 @@ class Studogochi(Game):
             self.screen.blit(timer_value, (self.timer.bounds.x, self.timer.bounds.y))
             self.clocks.previous_time = datetime.datetime.now()
 
+
+                
+                    
+
         self.gamer.draw(self.screen)
 
         self.button_health.draw(self.screen)
@@ -93,10 +100,48 @@ class Studogochi(Game):
         self.button_grades.draw(self.screen)
         self.button_money.draw(self.screen)
         self.button_alcohol.draw(self.screen)
+        for stat in self.gamer.statistics.keys():
+            if stat == 'grades':
+                if int(self.gamer.statistics[stat]) < 60:
+                    self.gameover.draw(self.screen)
+                    game_over_str = self.gameover.font.render("          В армии увидимся", True,
+                                                self.gameover.txt_color,
+                                                self.gameover.color)
+                    self.screen.blit(game_over_str, (self.gameover.bounds.x, self.gameover.bounds.y))
+                    game_over_why = self.gameover.font.render("     Надо было учиться лол", True,
+                                                self.gameover.txt_color,
+                                                self.gameover.color)
+                    self.screen.blit(game_over_why, (self.gameover.bounds.x, self.gameover.bounds.y+30)) 
+                    surf = pygame.image.load('images/game_over.jpg')
+                    
+                    self.screen.blit(surf, (self.gameover.bounds.x+100, self.gameover.bounds.y+70))
+                    game_over_exit = self.gameover.font.render("           Presss Esc to exit", True,
+                                                self.gameover.txt_color,
+                                                self.gameover.color)
+                    self.screen.blit(game_over_exit, (self.gameover.bounds.x, self.gameover.bounds.y+200)) 
+                    self.game_end = True
+                    
+            if int(self.gamer.statistics[stat]) < 0:
+                self.gameover.draw(self.screen)
+                game_over_str = self.gameover.font.render("              GAMEOVER", True,
+                                            self.gameover.txt_color,
+                                            self.gameover.color)
+                self.screen.blit(game_over_str, (self.gameover.bounds.x, self.gameover.bounds.y))
+                game_over_why = self.gameover.font.render("         because of {}".format(stat), True,
+                                            self.gameover.txt_color,
+                                            self.gameover.color)
+                self.screen.blit(game_over_why, (self.gameover.bounds.x, self.gameover.bounds.y+30)) 
+                surf = pygame.image.load('images/game_over.jpg')
+                
+                self.screen.blit(surf, (self.gameover.bounds.x+100, self.gameover.bounds.y+70))
+                game_over_exit = self.gameover.font.render("           Presss Esc to exit", True,
+                                            self.gameover.txt_color,
+                                            self.gameover.color)
+                self.screen.blit(game_over_exit, (self.gameover.bounds.x, self.gameover.bounds.y+200)) 
+                self.game_end = True
         pygame.display.update()
 
     def run(self):
-
         pygame.display.set_caption('Studogochi')
         run = True
         pygame.time.set_timer(self.HEALTH_DECREASE, 5000)
@@ -106,37 +151,50 @@ class Studogochi(Game):
 
         self.gamer.subscribe('health', self.statusbar_health) # TODO возможно не нужно каждый раз их подписывать
         self.gamer.subscribe('fatigue', self.statusbar_fatigue)
-        self.gamer.subscribe('grades', self.statusbar_grades)
+        self.gamer.subscribe('grades', self.statusbar_grades) # Вынести названия статусбаров в список и подписывать их в цикле
         self.gamer.subscribe('money', self.statusbar_money)
         self.gamer.subscribe('alcohol', self.statusbar_alcohol)
 
         while run:
-            self.draw_all()
-            self.clock.tick(60)
-            # pygame.time.delay(100) #я не знаю зачем нам нужна это строчка
+            if self.game_end:
+                for event in pygame.event.get():
+                    pos = pygame.mouse.get_pos()
+                    click = pygame.mouse.get_pressed()
 
-            for event in pygame.event.get():
-                pos = pygame.mouse.get_pos()
-                click = pygame.mouse.get_pressed()
+                    if event.type == pygame.QUIT:
+                        run = False
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            run = False
+            else:
+                self.draw_all()
+                self.clock.tick(60)
+                # pygame.time.delay(100) #я не знаю зачем нам нужна это строчка
+                
+                for event in pygame.event.get():
+                    pos = pygame.mouse.get_pos()
+                    click = pygame.mouse.get_pressed()
 
-                if event.type == pygame.QUIT:
-                    run = False
+                    if event.type == pygame.QUIT:
+                        run = False
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            run = False
+                    # Уменьшаем значения
+                    elif event.type == pygame.USEREVENT:
+                        self.gamer.update_statistic('health', -5)
+                        self.gamer.update_statistic('fatigue', -8)
+                        self.gamer.update_statistic('money', -7)
+                        self.gamer.update_statistic('alcohol', -6)
 
-                # Уменьшаем значения
-                elif event.type == pygame.USEREVENT:
-                    self.gamer.update_statistic('health', -5)
-                    self.gamer.update_statistic('fatigue', -8)
-                    self.gamer.update_statistic('money', -7)
-                    self.gamer.update_statistic('alcohol', -6)
-
-                # Нажатие кнопок
-                elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
-                    self.gamer.update_statistic('health', 10)
-                elif (self.button_fatigue.push(pos[0], pos[1], click[0], self.screen) is True):
-                    self.gamer.update_statistic('fatigue', 10)
-                elif (self.button_grades.push(pos[0], pos[1], click[0], self.screen) is True):
-                    self.gamer.update_grades(2)
-                elif (self.button_money.push(pos[0], pos[1], click[0], self.screen) is True):
-                    self.gamer.update_statistic('money', 10)
-                elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
-                    self.gamer.update_statistic('alcohol', 10)
+                    # Нажатие кнопок
+                    elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
+                        self.gamer.update_statistic('health', 10)
+                    elif (self.button_fatigue.push(pos[0], pos[1], click[0], self.screen) is True):
+                        self.gamer.update_statistic('fatigue', 10)
+                    elif (self.button_grades.push(pos[0], pos[1], click[0], self.screen) is True):
+                        self.gamer.update_grades(2)
+                    elif (self.button_money.push(pos[0], pos[1], click[0], self.screen) is True):
+                        self.gamer.update_statistic('money', 10)
+                    elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
+                        self.gamer.update_statistic('alcohol', 10)
