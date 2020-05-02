@@ -29,10 +29,12 @@ class Student(GameObject, ABC):
         который будет принимать название предмета и оценку'''
         self.statistics['grades'] += grade
         self.__subscribers['grades'].update_status(self.statistics['grades'])
+        self.__subscribers['gameover'].update_status('grades', self.statistics['grades'])
 
     def update_statistic(self, characteristic, value):
         self.statistics[characteristic] += value
         self.__subscribers[characteristic].update_status(self.statistics[characteristic])
+        self.__subscribers['gameover'].update_status(characteristic,self.statistics[characteristic])
 
     @property
     def name(self):

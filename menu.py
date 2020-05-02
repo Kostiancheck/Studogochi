@@ -19,50 +19,48 @@ class Info_gameover:
     def draw(self, surface):
         pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
 
-    def update_status(self, num):
-        self.value = num
-        text = self.font.render(str(self.value), True, self.txt_color, self.color)
-        self.surface.blit(text, (self.bounds.x, self.bounds.y))
-        pygame.display.update()
+    def update_status(self, char, num):
+        self.is_end(char, num)
     
-    def is_end(self):
-        for stat in self.gamer.statistics.keys():
-            if stat == 'grades':
-                if int(self.gamer.statistics[stat]) < 60 and int(self.clocks.days) > 365:
-                    self.draw(self.screen)
-                    game_over_str = self.font.render("В армии увидимся", True,
-                                                self.txt_color,
-                                                self.color)
-                    self.screen.blit(game_over_str, (self.bounds.x+60, self.bounds.y+5))
-                    game_over_why = self.font.render("Надо было учиться лол", True,
-                                                self.txt_color,
-                                                self.color)
-                    self.screen.blit(game_over_why, (self.bounds.x+40, self.bounds.y+40)) 
-                    surf = pygame.image.load(self.image)
-                    
-                    self.screen.blit(surf, (self.bounds.x+100, self.bounds.y+70))
-                    game_over_exit = self.font.render("Presss Esc to exit", True,
-                                                self.txt_color,
-                                                self.color)
-                    self.screen.blit(game_over_exit, (self.bounds.x+70, self.bounds.y+200)) 
-                    self.game_end = True
-                    
-            elif int(self.gamer.statistics[stat]) <= 0:
+    def is_end(self, stat, num):
+        if stat == 'grades':
+            if int(num) < 60 and int(self.clocks.days) > 365:
                 self.draw(self.screen)
-                game_over_str = self.font.render("GAMEOVER", True,
-                                            self.txt_color,
-                                            self.color)
-                self.screen.blit(game_over_str, (self.bounds.x+90, self.bounds.y+5))
-                game_over_why = self.font.render("because of {}".format(stat), True,
-                                            self.txt_color,
-                                            self.color)
-                self.screen.blit(game_over_why, (self.bounds.x+60, self.bounds.y+40)) 
+                game_over_str = self.font.render("В армии увидимся", True,
+                                                self.txt_color,
+                                                self.color)
+                self.screen.blit(game_over_str, (self.bounds.x+60, self.bounds.y+5))
+                game_over_why = self.font.render("Надо было учиться лол", True,
+                                                self.txt_color,
+                                                self.color)
+                self.screen.blit(game_over_why, (self.bounds.x+40, self.bounds.y+40)) 
                 surf = pygame.image.load(self.image)
-                
-                self.screen.blit(surf, (self.bounds.x+100, self.bounds.y+80))
+                    
+                self.screen.blit(surf, (self.bounds.x+100, self.bounds.y+70))
                 game_over_exit = self.font.render("Presss Esc to exit", True,
-                                            self.txt_color,
-                                            self.color)
+                                                self.txt_color,
+                                                self.color)
                 self.screen.blit(game_over_exit, (self.bounds.x+70, self.bounds.y+200)) 
                 self.game_end = True
+                pygame.display.update()
+                    
+        elif int(num) <= 0:
+            self.draw(self.screen)
+            game_over_str = self.font.render("GAMEOVER", True,
+                                            self.txt_color,
+                                            self.color)
+            self.screen.blit(game_over_str, (self.bounds.x+90, self.bounds.y+5))
+            game_over_why = self.font.render("because of {}".format(stat), True,
+                                            self.txt_color,
+                                            self.color)
+            self.screen.blit(game_over_why, (self.bounds.x+60, self.bounds.y+40)) 
+            surf = pygame.image.load(self.image)
+                
+            self.screen.blit(surf, (self.bounds.x+100, self.bounds.y+80))
+            game_over_exit = self.font.render("Presss Esc to exit", True,
+                                            self.txt_color,
+                                            self.color)
+            self.screen.blit(game_over_exit, (self.bounds.x+70, self.bounds.y+200)) 
+            self.game_end = True
+            pygame.display.update()
     

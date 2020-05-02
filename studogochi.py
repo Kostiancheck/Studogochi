@@ -38,7 +38,7 @@ class Studogochi(Game):
         self.statusbar_alcohol = StatusAlcohol(700, 140, 50, 20, (0, 0, 102), WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
         self.timer = Timer(370, 10, 55, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
-        self.clocks = Clocks(0, datetime.datetime.now())
+        self.clocks = Clocks(363, datetime.datetime.now())
         self.gameover = Info_gameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks, self.screen)
         self.HEALTH_DECREASE = pygame.USEREVENT # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
@@ -105,7 +105,7 @@ class Studogochi(Game):
         self.button_grades.draw(self.screen)
         self.button_money.draw(self.screen)
         self.button_alcohol.draw(self.screen)
-        self.gameover.is_end()
+        
         pygame.display.update()
 
     def run(self):
@@ -121,6 +121,7 @@ class Studogochi(Game):
         self.gamer.subscribe('grades', self.statusbar_grades) # Вынести названия статусбаров в список и подписывать их в цикле
         self.gamer.subscribe('money', self.statusbar_money)
         self.gamer.subscribe('alcohol', self.statusbar_alcohol)
+        self.gamer.subscribe('gameover', self.gameover)
 
         while run:
             if self.gameover.game_end:
