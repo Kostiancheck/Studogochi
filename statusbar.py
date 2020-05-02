@@ -11,7 +11,7 @@ class AStatusBar(GameObject, ABC):
         self.txt_color = txt_color
         self.surface = surface
         self.font = pygame.font.Font('freesansbold.ttf', 12)
-
+    """ЭТО АБСТРАКТНЫЙ КЛАСС, ПОТОМУ ЧТО КАЖДЫЙ СТАТУСБАР В ИДЕАЛЕ ОТРИСОВЫВАЕТСЯ ПО РАЗНОМУ"""
     def draw(self, surface):
         pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
 

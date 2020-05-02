@@ -108,6 +108,8 @@ class Studogochi(Game):
         
         pygame.display.update()
 
+    
+
     def run(self):
         pygame.display.set_caption('Studogochi')
         run = True

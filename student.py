@@ -9,14 +9,14 @@ class Student(GameObject, ABC):
         GameObject.__init__(self, x, y, width, height)
         self._name = name
         self.image = image
-        self.statistics = {'health': 1000,
-                           'fatigue': 1000,
+        self.statistics = {'health': 100,
+                           'fatigue': 100,
                            # Сделать много подпунтков в пункте "Grades"
                            # 'Grades': {'Матеша': 0,
                            # 		'ФП': 0},
-                           'grades': 65,
+                           'grades': 0,
                            'money': 1000,
-                           'alcohol': 1000,  # ТУТ БЫЛО 10 Алкоголь записывать в % (процент спирта в крови)
+                           'alcohol': 10,  # ТУТ БЫЛО 10 Алкоголь записывать в % (процент спирта в крови)
                            }
         self.__subscribers = {}
         self.font = pygame.font.Font('freesansbold.ttf', 25)
