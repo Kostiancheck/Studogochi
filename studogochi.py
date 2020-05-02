@@ -149,12 +149,14 @@ class Studogochi(Game):
                         if event.key == pygame.K_ESCAPE:
                             run = False
                     # Уменьшаем значения
-                    elif event.type == pygame.USEREVENT:
+                    elif event.type == self.HEALTH_DECREASE:
                         self.gamer.update_statistic('health', -5)
+                    elif event.type == self.FATIGUE_DECREASE:
                         self.gamer.update_statistic('fatigue', -8)
+                    elif event.type == self.MONEY_DECREASE:
                         self.gamer.update_statistic('money', -7)
+                    elif event.type == self.ALCOHOL_DECREASE:
                         self.gamer.update_statistic('alcohol', -6)
-                        self.gamer.update_grades(0)
 
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
