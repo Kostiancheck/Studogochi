@@ -11,7 +11,7 @@ from menu import *
 
 
 WHITE = (255, 255, 255)
-TIMER_DAYS = 0.5   #ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ 
+TIMER_DAYS = 5   #ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ 
 
 class Studogochi(Game):
     def __init__(self):
@@ -38,7 +38,7 @@ class Studogochi(Game):
         self.statusbar_alcohol = StatusAlcohol(700, 140, 50, 20, (0, 0, 102), WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
         self.timer = Timer(370, 10, 55, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
-        self.clocks = Clocks(363, datetime.datetime.now())
+        self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = Info_gameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks, self.screen)
         self.HEALTH_DECREASE = pygame.USEREVENT # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
@@ -112,9 +112,9 @@ class Studogochi(Game):
         pygame.display.set_caption('Studogochi')
         run = True
         pygame.time.set_timer(self.HEALTH_DECREASE, 5000)
-        pygame.time.set_timer(self.FATIGUE_DECREASE, 8000)
+        pygame.time.set_timer(self.FATIGUE_DECREASE, 5000)
         pygame.time.set_timer(self.MONEY_DECREASE, 10000)
-        pygame.time.set_timer(self.ALCOHOL_DECREASE, 12000)
+        pygame.time.set_timer(self.ALCOHOL_DECREASE, 35000)
 
         self.gamer.subscribe('health', self.statusbar_health) # TODO возможно не нужно каждый раз их подписывать
         self.gamer.subscribe('fatigue', self.statusbar_fatigue)
@@ -154,6 +154,7 @@ class Studogochi(Game):
                         self.gamer.update_statistic('fatigue', -8)
                         self.gamer.update_statistic('money', -7)
                         self.gamer.update_statistic('alcohol', -6)
+                        self.gamer.update_grades(0)
 
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):

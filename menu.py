@@ -24,7 +24,7 @@ class Info_gameover:
     
     def is_end(self, stat, num):
         if stat == 'grades':
-            if int(num) < 60 and int(self.clocks.days) > 365:
+            if int(num) < 60 and int(self.clocks.days) >= 365:
                 self.draw(self.screen)
                 game_over_str = self.font.render("В армии увидимся", True,
                                                 self.txt_color,
