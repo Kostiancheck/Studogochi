@@ -6,6 +6,9 @@ from student import Student
 from game import Game
 import datetime
 import time
+from menu import *
+
+
 
 WHITE = (255, 255, 255)
 TIMER_DAYS = 0.5   #ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ 
@@ -35,14 +38,16 @@ class Studogochi(Game):
         self.statusbar_alcohol = StatusAlcohol(700, 140, 50, 20, (0, 0, 102), WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
         self.timer = Timer(370, 10, 55, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
-        self.gameover = Info_gameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0)
         self.clocks = Clocks(0, datetime.datetime.now())
+        self.gameover = Info_gameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks, self.screen)
         self.HEALTH_DECREASE = pygame.USEREVENT # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
         self.ALCOHOL_DECREASE = pygame.USEREVENT + 3
-        self.game_end = False
+        
 
+
+    
 
     def draw_all(self):
         self.statusbar_health.draw(self.screen)
@@ -86,7 +91,7 @@ class Studogochi(Game):
             timer_value = self.timer.font.render(str(self.clocks.days)+'  days', True,
                                                 self.timer.txt_color,
                                                 self.timer.color)
-            self.screen.blit(timer_value, (self.timer.bounds.x, self.timer.bounds.y))
+            self.screen.blit(timer_value, (self.timer.bounds.x+4, self.timer.bounds.y))
             self.clocks.previous_time = datetime.datetime.now()
 
 
@@ -100,45 +105,7 @@ class Studogochi(Game):
         self.button_grades.draw(self.screen)
         self.button_money.draw(self.screen)
         self.button_alcohol.draw(self.screen)
-        for stat in self.gamer.statistics.keys():
-            if stat == 'grades':
-                if int(self.gamer.statistics[stat]) < 60:
-                    self.gameover.draw(self.screen)
-                    game_over_str = self.gameover.font.render("          В армии увидимся", True,
-                                                self.gameover.txt_color,
-                                                self.gameover.color)
-                    self.screen.blit(game_over_str, (self.gameover.bounds.x, self.gameover.bounds.y))
-                    game_over_why = self.gameover.font.render("     Надо было учиться лол", True,
-                                                self.gameover.txt_color,
-                                                self.gameover.color)
-                    self.screen.blit(game_over_why, (self.gameover.bounds.x, self.gameover.bounds.y+30)) 
-                    surf = pygame.image.load('images/game_over.jpg')
-                    
-                    self.screen.blit(surf, (self.gameover.bounds.x+100, self.gameover.bounds.y+70))
-                    game_over_exit = self.gameover.font.render("           Presss Esc to exit", True,
-                                                self.gameover.txt_color,
-                                                self.gameover.color)
-                    self.screen.blit(game_over_exit, (self.gameover.bounds.x, self.gameover.bounds.y+200)) 
-                    self.game_end = True
-                    
-            if int(self.gamer.statistics[stat]) < 0:
-                self.gameover.draw(self.screen)
-                game_over_str = self.gameover.font.render("              GAMEOVER", True,
-                                            self.gameover.txt_color,
-                                            self.gameover.color)
-                self.screen.blit(game_over_str, (self.gameover.bounds.x, self.gameover.bounds.y))
-                game_over_why = self.gameover.font.render("         because of {}".format(stat), True,
-                                            self.gameover.txt_color,
-                                            self.gameover.color)
-                self.screen.blit(game_over_why, (self.gameover.bounds.x, self.gameover.bounds.y+30)) 
-                surf = pygame.image.load('images/game_over.jpg')
-                
-                self.screen.blit(surf, (self.gameover.bounds.x+100, self.gameover.bounds.y+70))
-                game_over_exit = self.gameover.font.render("           Presss Esc to exit", True,
-                                            self.gameover.txt_color,
-                                            self.gameover.color)
-                self.screen.blit(game_over_exit, (self.gameover.bounds.x, self.gameover.bounds.y+200)) 
-                self.game_end = True
+        self.gameover.is_end()
         pygame.display.update()
 
     def run(self):
@@ -156,7 +123,7 @@ class Studogochi(Game):
         self.gamer.subscribe('alcohol', self.statusbar_alcohol)
 
         while run:
-            if self.game_end:
+            if self.gameover.game_end:
                 for event in pygame.event.get():
                     pos = pygame.mouse.get_pos()
                     click = pygame.mouse.get_pressed()
