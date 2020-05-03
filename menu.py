@@ -23,6 +23,7 @@ class Info_gameover:
         self.is_end(char, num)
     
     def is_end(self, stat, num):
+        print(stat)
         if stat == 'grades':
             if int(num) < 60 and int(self.clocks.days) >= 365:
                 self.draw(self.screen)

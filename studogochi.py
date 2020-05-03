@@ -37,13 +37,14 @@ class Studogochi(Game):
                                            value=self.gamer.statistics['money'], surface=self.screen)
         self.statusbar_alcohol = StatusAlcohol(700, 140, 50, 20, (0, 0, 102), WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
-        self.timer = Timer(370, 10, 55, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
+        self.timer = Timer(370, 10, 60, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
         self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = Info_gameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks, self.screen)
         self.HEALTH_DECREASE = pygame.USEREVENT # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
         self.ALCOHOL_DECREASE = pygame.USEREVENT + 3
+        self.GRADES = pygame.USEREVENT + 4
         
 
 
@@ -117,6 +118,7 @@ class Studogochi(Game):
         pygame.time.set_timer(self.FATIGUE_DECREASE, 5000)
         pygame.time.set_timer(self.MONEY_DECREASE, 10000)
         pygame.time.set_timer(self.ALCOHOL_DECREASE, 35000)
+        pygame.time.set_timer(self.GRADES, 10000)
 
         self.gamer.subscribe('health', self.statusbar_health) # TODO возможно не нужно каждый раз их подписывать
         self.gamer.subscribe('fatigue', self.statusbar_fatigue)
@@ -159,6 +161,8 @@ class Studogochi(Game):
                         self.gamer.update_statistic('money', -7)
                     elif event.type == self.ALCOHOL_DECREASE:
                         self.gamer.update_statistic('alcohol', -6)
+                    elif event.type == self.GRADES:
+                        self.gamer.update_grades(0)
 
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
