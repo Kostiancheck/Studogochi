@@ -2,7 +2,7 @@ import pygame
 from game_object import GameObject
 
 
-class Info_gameover:
+class InfoGameover:
     def __init__(self, x, y, width, height, color, txt_color, value, gamer, clocks, screen ,surface=None):
         GameObject.__init__(self, x, y, width, height)
         self.color = color
@@ -23,7 +23,6 @@ class Info_gameover:
         self.is_end(char, num)
     
     def is_end(self, stat, num):
-        print(stat)
         if stat == 'grades':
             if int(num) < 60 and int(self.clocks.days) >= 365:
                 self.draw(self.screen)

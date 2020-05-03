@@ -8,10 +8,9 @@ import datetime
 import time
 from menu import *
 
-
-
 WHITE = (255, 255, 255)
-TIMER_DAYS = 5   #ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ 
+TIMER_DAYS = 5  # ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ
+
 
 class Studogochi(Game):
     def __init__(self):
@@ -38,17 +37,14 @@ class Studogochi(Game):
         self.statusbar_alcohol = StatusAlcohol(550, 20, 50, 20, (0, 0, 102), WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
         self.timer = Timer(70, 20, 60, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
-        self.clocks = Clocks(0, datetime.datetime.now())
-        self.gameover = Info_gameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks, self.screen)
-        self.HEALTH_DECREASE = pygame.USEREVENT # TODO сделать эти переменные через список
+        self.clocks = Clocks(364, datetime.datetime.now())
+        self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
+                                      self.screen)
+        self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
         self.ALCOHOL_DECREASE = pygame.USEREVENT + 3
         self.GRADES = pygame.USEREVENT + 4
-        
-
-
-    
 
     def draw_all(self):
         self.statusbar_health.draw(self.screen)
@@ -81,24 +77,6 @@ class Studogochi(Game):
                                                                      self.statusbar_alcohol.color)
         self.screen.blit(statusbar_alcohol_value, (self.statusbar_alcohol.bounds.x, self.statusbar_alcohol.bounds.y))
 
-        #TIMER 
-        elapsedTime = datetime.datetime.now() - self.clocks.previous_time
-        x = divmod(elapsedTime.total_seconds(), 60)
-        if int(x[1]) < TIMER_DAYS:
-            pass
-        else:
-            self.timer.draw(self.screen)
-            self.clocks.days += 1
-            timer_value = self.timer.font.render(str(self.clocks.days)+'  days', True,
-                                                self.timer.txt_color,
-                                                self.timer.color)
-            self.screen.blit(timer_value, (self.timer.bounds.x+4, self.timer.bounds.y))
-            self.clocks.previous_time = datetime.datetime.now()
-
-
-                
-                    
-
         self.gamer.draw(self.screen)
 
         self.button_health.draw(self.screen)
@@ -106,10 +84,22 @@ class Studogochi(Game):
         self.button_grades.draw(self.screen)
         self.button_money.draw(self.screen)
         self.button_alcohol.draw(self.screen)
-        
-        pygame.display.update()
 
-    
+        # TIMER
+        elapsedTime = datetime.datetime.now() - self.clocks.previous_time
+        x = divmod(elapsedTime.total_seconds(), 60)
+        if int(x[1]) < TIMER_DAYS:
+            pass
+        else:
+            self.timer.draw(self.screen)
+            self.clocks.days += 1
+            timer_value = self.timer.font.render(str(self.clocks.days) + '  days', True,
+                                                 self.timer.txt_color,
+                                                 self.timer.color)
+            self.screen.blit(timer_value, (self.timer.bounds.x + 4, self.timer.bounds.y))
+            self.clocks.previous_time = datetime.datetime.now()
+
+        pygame.display.update()
 
     def run(self):
         pygame.display.set_caption('Studogochi')
@@ -120,9 +110,9 @@ class Studogochi(Game):
         pygame.time.set_timer(self.ALCOHOL_DECREASE, 35000)
         pygame.time.set_timer(self.GRADES, 10000)
 
-        self.gamer.subscribe('health', self.statusbar_health) # TODO возможно не нужно каждый раз их подписывать
+        self.gamer.subscribe('health', self.statusbar_health)  # TODO возможно не нужно каждый раз их подписывать
         self.gamer.subscribe('fatigue', self.statusbar_fatigue)
-        self.gamer.subscribe('grades', self.statusbar_grades) # Вынести названия статусбаров в список и подписывать их в цикле
+        self.gamer.subscribe('grades', self.statusbar_grades)  # Вынести названия статусбаров в список и подписывать их в цикле
         self.gamer.subscribe('money', self.statusbar_money)
         self.gamer.subscribe('alcohol', self.statusbar_alcohol)
         self.gamer.subscribe('gameover', self.gameover)
@@ -142,7 +132,7 @@ class Studogochi(Game):
                 self.draw_all()
                 self.clock.tick(60)
                 # pygame.time.delay(100) #я не знаю зачем нам нужна это строчка
-                
+
                 for event in pygame.event.get():
                     pos = pygame.mouse.get_pos()
                     click = pygame.mouse.get_pressed()
