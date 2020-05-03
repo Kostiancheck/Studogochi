@@ -85,19 +85,11 @@ class Studogochi(Game):
         self.button_money.draw(self.screen)
         self.button_alcohol.draw(self.screen)
 
-        # TIMER
-        elapsedTime = datetime.datetime.now() - self.clocks.previous_time
-        x = divmod(elapsedTime.total_seconds(), 60)
-        if int(x[1]) < TIMER_DAYS:
-            pass
-        else:
-            self.timer.draw(self.screen)
-            self.clocks.days += 1
-            timer_value = self.timer.font.render(str(self.clocks.days) + '  days', True,
-                                                 self.timer.txt_color,
-                                                 self.timer.color)
-            self.screen.blit(timer_value, (self.timer.bounds.x + 4, self.timer.bounds.y))
-            self.clocks.previous_time = datetime.datetime.now()
+        self.timer.draw(self.screen)
+        timer_value = self.timer.font.render(str(self.clocks.days) + '  days', True,
+                                             self.timer.txt_color,
+                                             self.timer.color)
+        self.screen.blit(timer_value, (self.timer.bounds.x + 4, self.timer.bounds.y))
 
         pygame.display.update()
 
@@ -118,6 +110,16 @@ class Studogochi(Game):
         self.gamer.subscribe('gameover', self.gameover)
 
         while run:
+
+            #TIMER
+            elapsedTime = datetime.datetime.now() - self.clocks.previous_time
+            x = divmod(elapsedTime.total_seconds(), 60)
+            if int(x[1]) < TIMER_DAYS:
+                pass
+            else:
+                self.clocks.days += 1
+                self.clocks.previous_time = datetime.datetime.now()
+
             if self.gameover.game_end:
                 for event in pygame.event.get():
                     pos = pygame.mouse.get_pos()
@@ -165,3 +167,7 @@ class Studogochi(Game):
                         self.gamer.update_statistic('money', 10)
                     elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('alcohol', 10)
+
+
+
+
