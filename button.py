@@ -8,28 +8,29 @@ import time
 class AButton(GameObject, ABC):
     """This is abstract class of buttons for making new buttons to control student"""
 
-    def __init__(self, x, y, radius, color):
-        GameObject.__init__(self, x, y, radius * 2, radius * 2)
-        self.radius = radius
-        self.color = color
+    def __init__(self, x, y, width, height, image):
+        GameObject.__init__(self, x, y, width, height)
+        self.image = image
 
     def draw(self, surface):
-        pygame.draw.circle(surface, self.color, (self.bounds.x, self.bounds.y),
-                           self.radius)  # bounds is an instance of class Rect wich is used in GameObject
+        images = pygame.image.load(self.image)
+        rect = images.get_rect(bottomright=(self.bounds.x, self.bounds.y))
+        surface.blit(images, rect)
+
     def push(self, mouse_x, mouse_y, mouse_click, surface):
-        if (self.bounds.x + self.radius > mouse_x > self.bounds.x - self.radius and
-              self.bounds.y + self.radius > mouse_y > self.bounds.y - self.radius and
-              mouse_click == 1):
+        if (self.bounds.x > mouse_x > self.bounds.x - self.width and
+                self.bounds.y > mouse_y > self.bounds.y - self.height and
+                mouse_click == 1):
 
             # Change button's color
-            pushed_mouse_color = (0, 191, 255)
-            self.color, pushed_mouse_color = pushed_mouse_color, self.color
-            self.draw(surface)
-            pygame.display.update()
-            time.sleep(0.2)
-            self.color, pushed_mouse_color = pushed_mouse_color, self.color
-            self.draw(surface)
-            pygame.display.update()
+            # pushed_mouse_color = (0, 191, 255)
+            # self.color, pushed_mouse_color = pushed_mouse_color, self.color
+            # self.draw(surface)
+            # pygame.display.update()
+            # time.sleep(0.2)
+            # self.color, pushed_mouse_color = pushed_mouse_color, self.color
+            # self.draw(surface)
+            # pygame.display.update()
 
             return True
 
@@ -42,8 +43,8 @@ class AButton(GameObject, ABC):
 class ButtonHealth(AButton):
     """This button contols student's health"""
 
-    def __init__(self, x, y, radius, color):
-        AButton.__init__(self, x, y, radius, color)
+    def __init__(self,  x, y, width, height, image):
+        AButton.__init__(self, x, y, width, height, image)
 
     def increase(self, surface):
         StatusHealth.update_status(10, surface)
@@ -51,33 +52,36 @@ class ButtonHealth(AButton):
 class ButtonFatigue(AButton):
     """This button contols student's health"""
 
-    def __init__(self, x, y, radius, color):
-        AButton.__init__(self, x, y, radius, color)
+    def __init__(self, x, y, width, height, image):
+        AButton.__init__(self, x, y, width, height, image)
 
     def increase(self, surface):
-        StatusFatigue.update_status(10, surface)
+        StatusFatigue.update_status(5, surface)
 
 
 class ButtonGrades(AButton):
     """This button contols student's grades """
-    def __init__(self, x, y, radius, color):
-        AButton.__init__(self, x, y, radius, color)
-    
+
+    def __init__(self, x, y, width, height, image):
+        AButton.__init__(self, x, y, width, height, image)
+
     def increase(self, surface):
         StatusGrades.update_status(5, surface)
 
 class ButtonMoney(AButton):
-    """This button contols student's grades """
-    def __init__(self, x, y, radius, color):
-        AButton.__init__(self, x, y, radius, color)
-    
+    """This button contols student's money """
+
+    def __init__(self, x, y, width, height, image):
+        AButton.__init__(self, x, y, width, height, image)
+
     def increase(self, surface):
-        StatusGrades.update_status(10, surface)
+        StatusMoney.update_status(15, surface)
 
 class ButtonAlcohol(AButton):
-    """This button contols student's grades """
-    def __init__(self, x, y, radius, color):
-        AButton.__init__(self, x, y, radius, color)
-    
+    """This button contols student's alcohol """
+
+    def __init__(self, x, y, width, height, image):
+        AButton.__init__(self, x, y, width, height, image)
+
     def increase(self, surface):
-        StatusGrades.update_status(10, surface)
+        StatusAlcohol.update_status(15, surface)

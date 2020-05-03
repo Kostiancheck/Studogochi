@@ -22,22 +22,22 @@ class Studogochi(Game):
         self.clock = pygame.time.Clock()
         self.objects = []
         self.gamer = Student(500, 400, 100, 200, 'Bob', 'images/student.jpeg')
-        self.button_health = ButtonHealth(50, 50, 25, WHITE)
-        self.button_fatigue = ButtonFatigue(50, 125, 25, WHITE)
-        self.button_grades = ButtonGrades(50, 200, 25, WHITE)
-        self.button_money = ButtonMoney(50, 275, 25, WHITE)
-        self.button_alcohol = ButtonAlcohol(50, 350, 25, WHITE)
-        self.statusbar_health = StatusHealth(700, 20, 50, 20, (220, 20, 60), WHITE,
+        self.button_health = ButtonHealth(250, 575, 76, 50, 'images/images.png')
+        self.button_fatigue = ButtonFatigue(375, 575, 90, 50, 'images/fatigue.jpg')
+        self.button_grades = ButtonGrades(460, 575, 59, 50, 'images/grades.png')
+        self.button_money = ButtonMoney(540, 575, 50, 50, 'images/money.jpg')
+        self.button_alcohol = ButtonAlcohol(625, 575, 51, 75, 'images/bottle_new.jpg')
+        self.statusbar_health = StatusHealth(250, 20, 50, 20, (220, 20, 60), WHITE,
                                              value=self.gamer.statistics['health'], surface=self.screen)
-        self.statusbar_fatigue = StatusFatigue(700, 50, 50, 20, (0, 100, 0), WHITE,
+        self.statusbar_fatigue = StatusFatigue(325, 20, 50, 20, (0, 100, 0), WHITE,
                                                value=self.gamer.statistics['fatigue'], surface=self.screen)
-        self.statusbar_grades = StatusGrades(700, 80, 50, 20, (0, 128, 128), WHITE,
+        self.statusbar_grades = StatusGrades(400, 20, 50, 20, (0, 128, 128), WHITE,
                                              value=self.gamer.statistics['grades'], surface=self.screen)
-        self.statusbar_money = StatusMoney(700, 110, 50, 20, (255, 140, 0), WHITE,
+        self.statusbar_money = StatusMoney(475, 20, 50, 20, (255, 140, 0), WHITE,
                                            value=self.gamer.statistics['money'], surface=self.screen)
-        self.statusbar_alcohol = StatusAlcohol(700, 140, 50, 20, (0, 0, 102), WHITE,
+        self.statusbar_alcohol = StatusAlcohol(550, 20, 50, 20, (0, 0, 102), WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
-        self.timer = Timer(370, 10, 60, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
+        self.timer = Timer(70, 20, 60, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
         self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = Info_gameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks, self.screen)
         self.HEALTH_DECREASE = pygame.USEREVENT # TODO сделать эти переменные через список
