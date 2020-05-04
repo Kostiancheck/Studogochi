@@ -37,7 +37,7 @@ class Studogochi(Game):
         self.statusbar_alcohol = StatusAlcohol(550, 20, 50, 20, (0, 0, 102), WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
         self.timer = Timer(70, 20, 60, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
-        self.clocks = Clocks(364, datetime.datetime.now())
+        self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
                                       self.screen)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
