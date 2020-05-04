@@ -40,6 +40,7 @@ class Studogochi(Game):
         self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
                                       self.screen)
+        self.menu = Menu(0,0,800,600,(0,0,0),(255,255,255, 0.5),self.screen, self.clocks)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
@@ -96,6 +97,7 @@ class Studogochi(Game):
     def run(self):
         pygame.display.set_caption('Studogochi')
         run = True
+        m_open = False
         pygame.time.set_timer(self.HEALTH_DECREASE, 5000)
         pygame.time.set_timer(self.FATIGUE_DECREASE, 5000)
         pygame.time.set_timer(self.MONEY_DECREASE, 10000)
@@ -110,16 +112,6 @@ class Studogochi(Game):
         self.gamer.subscribe('gameover', self.gameover)
 
         while run:
-
-            #TIMER
-            elapsedTime = datetime.datetime.now() - self.clocks.previous_time
-            x = divmod(elapsedTime.total_seconds(), 60)
-            if int(x[1]) < TIMER_DAYS:
-                pass
-            else:
-                self.clocks.days += 1
-                self.clocks.previous_time = datetime.datetime.now()
-
             if self.gameover.game_end:
                 for event in pygame.event.get():
                     pos = pygame.mouse.get_pos()
@@ -130,7 +122,28 @@ class Studogochi(Game):
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             run = False
+            elif m_open:
+                self.menu.open_menu(self.background_image, m_open)
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                            run = False
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            run = False
+                        if event.key == pygame.K_F1:
+                            m_open = False
+                            self.menu.open_menu(self.background_image, m_open)
             else:
+                #TIMER
+                elapsedTime = datetime.datetime.now() - self.clocks.previous_time
+                x = divmod(elapsedTime.total_seconds(), 60)
+                if int(x[1]) < TIMER_DAYS:
+                    pass
+                else:
+                    self.clocks.days += 1
+                    self.clocks.previous_time = datetime.datetime.now()
+                    self.draw_all()
+                    self.clock.tick(60)
                 self.draw_all()
                 self.clock.tick(60)
                 # pygame.time.delay(100) #я не знаю зачем нам нужна это строчка
@@ -144,6 +157,9 @@ class Studogochi(Game):
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             run = False
+                        if event.key == pygame.K_F1:
+                            m_open = True
+                            
                     # Уменьшаем значения
                     elif event.type == self.HEALTH_DECREASE:
                         self.gamer.update_statistic('health', -5)
@@ -167,6 +183,7 @@ class Studogochi(Game):
                         self.gamer.update_statistic('money', 10)
                     elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('alcohol', 10)
+
 
 
 
