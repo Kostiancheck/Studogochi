@@ -1,9 +1,10 @@
 import pygame
 from game_object import GameObject
 from abc import ABC, abstractmethod
+from interface_draw import IDraw
 
 
-class AStatusBar(GameObject, ABC):
+class AStatusBar(GameObject, IDraw):
     def __init__(self, x, y, width, height, color, txt_color, value, surface=None):
         GameObject.__init__(self, x, y, width, height)
         self.color = color

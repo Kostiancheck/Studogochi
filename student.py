@@ -2,9 +2,10 @@ import pygame
 from game_object import GameObject
 from abc import ABC, abstractmethod
 from statusbar import *
+from interface_draw import IDraw
 
 
-class Student(GameObject, ABC):
+class Student(GameObject, IDraw):
     def __init__(self, x, y, width, height, name, image):
         GameObject.__init__(self, x, y, width, height)
         self._name = name

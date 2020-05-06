@@ -1,5 +1,4 @@
 
-
 class NegativeStatistic(Exception):
     def __init__(self, stat):
         self.stat = stat

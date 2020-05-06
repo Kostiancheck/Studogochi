@@ -1,16 +1,18 @@
 import pygame
 from game_object import GameObject
 from abc import ABC, abstractmethod
+from interface_draw import IDraw
 from statusbar import StatusHealth
 import time
 
 
-class AButton(GameObject, ABC):
+class AButton(GameObject, IDraw):
     """This is abstract class of buttons for making new buttons to control student"""
 
-    def __init__(self, x, y, width, height, image):
+    def __init__(self,  x, y, width, height, image, characteristic):
         GameObject.__init__(self, x, y, width, height)
         self.image = image
+        self.characteristic = characteristic
 
     def draw(self, surface):
         images = pygame.image.load(self.image)
@@ -31,57 +33,19 @@ class AButton(GameObject, ABC):
             # self.color, pushed_mouse_color = pushed_mouse_color, self.color
             # self.draw(surface)
             # pygame.display.update()
-
             return True
 
-
     @abstractmethod
-    def increase(self, attribute):
+    def increase(self, value, gamer):
         pass
 
 
-class ButtonHealth(AButton):
-    """This button contols student's health"""
-
-    def __init__(self,  x, y, width, height, image):
-        AButton.__init__(self, x, y, width, height, image)
-
-    def increase(self, surface):
-        StatusHealth.update_status(10, surface)
-
-class ButtonFatigue(AButton):
-    """This button contols student's health"""
-
-    def __init__(self, x, y, width, height, image):
-        AButton.__init__(self, x, y, width, height, image)
-
-    def increase(self, surface):
-        StatusFatigue.update_status(5, surface)
+class Button(AButton):
+    def increase(self, value, gamer):
+        gamer.update_statistic(self.characteristic, value)
 
 
-class ButtonGrades(AButton):
-    """This button contols student's grades """
-
-    def __init__(self, x, y, width, height, image):
-        AButton.__init__(self, x, y, width, height, image)
-
-    def increase(self, surface):
-        StatusGrades.update_status(5, surface)
-
-class ButtonMoney(AButton):
-    """This button contols student's money """
-
-    def __init__(self, x, y, width, height, image):
-        AButton.__init__(self, x, y, width, height, image)
-
-    def increase(self, surface):
-        StatusMoney.update_status(15, surface)
-
-class ButtonAlcohol(AButton):
-    """This button contols student's alcohol """
-
-    def __init__(self, x, y, width, height, image):
-        AButton.__init__(self, x, y, width, height, image)
-
-    def increase(self, surface):
-        StatusAlcohol.update_status(15, surface)
+class GradesButton(AButton):
+    """This method will be changed in (not) nearest future"""
+    def increase(self, value, gamer):
+        gamer.update_grades(self.characteristic, value)

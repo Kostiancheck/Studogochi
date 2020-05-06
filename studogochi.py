@@ -21,11 +21,11 @@ class Studogochi(Game):
         self.clock = pygame.time.Clock()
         self.objects = []
         self.gamer = Student(500, 400, 100, 200, 'Bob', 'images/student.jpeg')
-        self.button_health = ButtonHealth(250, 575, 76, 50, 'images/images.png')
-        self.button_fatigue = ButtonFatigue(375, 575, 90, 50, 'images/fatigue.jpg')
-        self.button_grades = ButtonGrades(460, 575, 59, 50, 'images/grades.png')
-        self.button_money = ButtonMoney(540, 575, 50, 50, 'images/money.jpg')
-        self.button_alcohol = ButtonAlcohol(625, 575, 51, 75, 'images/bottle_new.jpg')
+        self.button_health = Button(250, 575, 76, 50, 'images/images.png', characteristic='health')
+        self.button_fatigue = Button(375, 575, 90, 50, 'images/fatigue.jpg', characteristic='fatigue')
+        self.button_grades = GradesButton(460, 575, 59, 50, 'images/grades.png', characteristic='grades')
+        self.button_money = Button(540, 575, 50, 50, 'images/money.jpg', characteristic='money')
+        self.button_alcohol = Button(625, 575, 51, 75, 'images/bottle_new.jpg', characteristic='alcohol')
         self.statusbar_health = StatusHealth(250, 20, 50, 20, (220, 20, 60), WHITE,
                                              value=self.gamer.statistics['health'], surface=self.screen)
         self.statusbar_fatigue = StatusFatigue(325, 20, 50, 20, (0, 100, 0), WHITE,
@@ -40,7 +40,7 @@ class Studogochi(Game):
         self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
                                       self.screen)
-        self.menu = Menu(0,0,800,600,(0,0,0),(255,255,255, 0.5),self.screen, self.clocks)
+        self.menu = Menu(0, 0, 800, 600, (0, 0, 0), (255, 255, 255, 0.5), self.screen, self.clocks)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2

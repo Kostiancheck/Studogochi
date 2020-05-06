@@ -1,7 +1,8 @@
 import pygame
+from interface_draw import IDraw
 
 
-class TextObject:
+class TextObject(IDraw):
     def __init__(self,
                  x,
                  y,
