@@ -15,11 +15,13 @@ class AStatusBar(GameObject, IDraw):
     """ЭТО АБСТРАКТНЫЙ КЛАСС, ПОТОМУ ЧТО КАЖДЫЙ СТАТУСБАР В ИДЕАЛЕ ОТРИСОВЫВАЕТСЯ ПО РАЗНОМУ"""
     def draw(self, surface):
         pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
+        value = self.font.render(str(self.value), True, self.txt_color, self.color)
+        surface.blit(value, (self.bounds.x + 13, self.bounds.y))
 
     def update_status(self, num):
         self.value = num
         text = self.font.render(str(self.value), True, self.txt_color, self.color)
-        self.surface.blit(text, (self.bounds.x, self.bounds.y))
+        self.surface.blit(text, (self.bounds.x+13, self.bounds.y))
         pygame.display.update()
 
 

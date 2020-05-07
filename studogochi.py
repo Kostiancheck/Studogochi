@@ -49,35 +49,11 @@ class Studogochi(Game):
 
     def draw_all(self):
         self.statusbar_health.draw(self.screen)
-        statusbar_health_value = self.statusbar_health.font.render(str(self.statusbar_health.value), True,
-                                                                   self.statusbar_health.txt_color,
-                                                                   self.statusbar_health.color)
-        self.screen.blit(statusbar_health_value, (self.statusbar_health.bounds.x, self.statusbar_health.bounds.y))
 
         self.statusbar_fatigue.draw(self.screen)
-        statusbar_fatigue_value = self.statusbar_fatigue.font.render(str(self.statusbar_fatigue.value), True,
-                                                                     self.statusbar_fatigue.txt_color,
-                                                                     self.statusbar_fatigue.color)
-        self.screen.blit(statusbar_fatigue_value, (self.statusbar_fatigue.bounds.x, self.statusbar_fatigue.bounds.y))
-
         self.statusbar_grades.draw(self.screen)
-        statusbar_grades_value = self.statusbar_grades.font.render(str(self.statusbar_grades.value), True,
-                                                                   self.statusbar_grades.txt_color,
-                                                                   self.statusbar_grades.color)
-        self.screen.blit(statusbar_grades_value, (self.statusbar_grades.bounds.x, self.statusbar_grades.bounds.y))
-
         self.statusbar_money.draw(self.screen)
-        statusbar_money_value = self.statusbar_money.font.render(str(self.statusbar_money.value), True,
-                                                                 self.statusbar_money.txt_color,
-                                                                 self.statusbar_money.color)
-        self.screen.blit(statusbar_money_value, (self.statusbar_money.bounds.x, self.statusbar_money.bounds.y))
-
         self.statusbar_alcohol.draw(self.screen)
-        statusbar_alcohol_value = self.statusbar_alcohol.font.render(str(self.statusbar_alcohol.value), True,
-                                                                     self.statusbar_alcohol.txt_color,
-                                                                     self.statusbar_alcohol.color)
-        self.screen.blit(statusbar_alcohol_value, (self.statusbar_alcohol.bounds.x, self.statusbar_alcohol.bounds.y))
-
         self.gamer.draw(self.screen)
 
         self.button_health.draw(self.screen)
@@ -175,14 +151,20 @@ class Studogochi(Game):
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('health', 10)
+                        pygame.time.wait(1000)
                     elif (self.button_fatigue.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('fatigue', 10)
+                        pygame.time.wait(1000)
                     elif (self.button_grades.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_grades(2)
+                        pygame.time.wait(1000)
                     elif (self.button_money.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('money', 10)
+                        pygame.time.wait(1000)
                     elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('alcohol', 10)
+                        pygame.time.wait(1000)
+
 
 
 
