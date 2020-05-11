@@ -6,7 +6,7 @@ from interface_draw import IDraw
 
 class AStatusBar(GameObject, IDraw):
     def __init__(self, x, y, width, height, color, txt_color, value, surface=None):
-        GameObject.__init__(self, x, y, width, height)
+        super().__init__(x, y, width, height)
         self.color = color
         self.value = value
         self.txt_color = txt_color

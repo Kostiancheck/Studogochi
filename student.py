@@ -7,7 +7,7 @@ from interface_draw import IDraw
 
 class Student(GameObject, IDraw):
     def __init__(self, x, y, width, height, name, image):
-        GameObject.__init__(self, x, y, width, height)
+        super().__init__(x, y, width, height)
         self._name = name
         self.image = image
         self.statistics = {'health': 100,
@@ -48,6 +48,7 @@ class Student(GameObject, IDraw):
 
     def draw(self, surface):
         surf = pygame.image.load(self.image)
+        surf = pygame.transform.scale(surf, (self.width, self.height))
         rect = surf.get_rect(bottomright=(self.bounds.x, self.bounds.y))
         surface.blit(surf, rect)
         text = self.font.render(str(self._name), True, (255, 0, 0),

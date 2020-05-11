@@ -10,7 +10,7 @@ class AButton(GameObject, IDraw):
     """This is abstract class of buttons for making new buttons to control student"""
 
     def __init__(self,  x, y, width, height, image, characteristic):
-        GameObject.__init__(self, x, y, width, height)
+        super().__init__(x, y, width, height)
         self.image = image
         self.characteristic = characteristic
 

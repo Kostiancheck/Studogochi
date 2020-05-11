@@ -15,17 +15,16 @@ TIMER_DAYS = 5  # ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАН
 class Studogochi(Game):
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((800, 600))
-        self.background_image = pygame.image.load('images/background.jpeg')
-        self.screen.blit(self.background_image, (0, 0))
+        self.screen = pygame.display.set_mode((720, 640))
+        self.background_image = pygame.image.load('images/backgrounds/main_background.png')
         self.clock = pygame.time.Clock()
         self.objects = []
-        self.gamer = Student(500, 400, 100, 200, 'Bob', 'images/student.jpeg')
-        self.button_health = Button(250, 575, 76, 50, 'images/images.png', characteristic='health')
-        self.button_fatigue = Button(375, 575, 90, 50, 'images/fatigue.jpg', characteristic='fatigue')
-        self.button_grades = GradesButton(460, 575, 59, 50, 'images/grades.png', characteristic='grades')
-        self.button_money = Button(540, 575, 50, 50, 'images/money.jpg', characteristic='money')
-        self.button_alcohol = Button(625, 575, 51, 75, 'images/bottle_new.jpg', characteristic='alcohol')
+        self.gamer = Student(x=600, y=500, width=290, height=450, name='Bob', image='images/student_male.png')
+        self.button_health = Button(250, 575, 76, 50, 'images/buttons/eat_button.png', characteristic='health')
+        self.button_fatigue = Button(375, 575, 90, 50, 'images/buttons/sleep_button.png', characteristic='fatigue')
+        self.button_grades = GradesButton(460, 575, 59, 50, 'images/buttons/study_button.png', characteristic='grades')
+        self.button_money = Button(540, 575, 50, 50, 'images/buttons/money_button.png', characteristic='money')
+        self.button_alcohol = Button(625, 575, 51, 75, 'images/buttons/drink_button.png', characteristic='alcohol')
         self.statusbar_health = StatusHealth(250, 20, 50, 20, (220, 20, 60), WHITE,
                                              value=self.gamer.statistics['health'], surface=self.screen)
         self.statusbar_fatigue = StatusFatigue(325, 20, 50, 20, (0, 100, 0), WHITE,
@@ -39,7 +38,7 @@ class Studogochi(Game):
         self.timer = Timer(70, 20, 60, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
         self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
-                                      self.screen)
+                                     self.screen)
         self.menu = Menu(0, 0, 800, 600, (0, 0, 0), (255, 255, 255, 0.5), self.screen, self.clocks)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
@@ -48,8 +47,9 @@ class Studogochi(Game):
         self.GRADES = pygame.USEREVENT + 4
 
     def draw_all(self):
-        self.statusbar_health.draw(self.screen)
+        self.screen.blit(self.background_image, (-250, 0))
 
+        self.statusbar_health.draw(self.screen)
         self.statusbar_fatigue.draw(self.screen)
         self.statusbar_grades.draw(self.screen)
         self.statusbar_money.draw(self.screen)
@@ -82,7 +82,8 @@ class Studogochi(Game):
 
         self.gamer.subscribe('health', self.statusbar_health)  # TODO возможно не нужно каждый раз их подписывать
         self.gamer.subscribe('fatigue', self.statusbar_fatigue)
-        self.gamer.subscribe('grades', self.statusbar_grades)  # Вынести названия статусбаров в список и подписывать их в цикле
+        self.gamer.subscribe('grades',
+                             self.statusbar_grades)  # Вынести названия статусбаров в список и подписывать их в цикле
         self.gamer.subscribe('money', self.statusbar_money)
         self.gamer.subscribe('alcohol', self.statusbar_alcohol)
         self.gamer.subscribe('gameover', self.gameover)
@@ -102,7 +103,7 @@ class Studogochi(Game):
                 self.menu.open_menu(self.background_image, m_open)
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
-                            run = False
+                        run = False
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             run = False
@@ -110,7 +111,7 @@ class Studogochi(Game):
                             m_open = False
                             self.menu.open_menu(self.background_image, m_open)
             else:
-                #TIMER
+                # TIMER
                 elapsedTime = datetime.datetime.now() - self.clocks.previous_time
                 x = divmod(elapsedTime.total_seconds(), 60)
                 if int(x[1]) < TIMER_DAYS:
@@ -135,7 +136,7 @@ class Studogochi(Game):
                             run = False
                         if event.key == pygame.K_F1:
                             m_open = True
-                            
+
                     # Уменьшаем значения
                     elif event.type == self.HEALTH_DECREASE:
                         self.gamer.update_statistic('health', -5)
@@ -164,9 +165,3 @@ class Studogochi(Game):
                     elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('alcohol', 10)
                         pygame.time.wait(1000)
-
-
-
-
-
-

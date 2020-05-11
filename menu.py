@@ -3,9 +3,10 @@ from game_object import GameObject
 from exception import *
 from interface_draw import IDraw
 
-class Menu(IDraw):
+
+class Menu(GameObject, IDraw):
     def __init__(self, x, y, width, height, text_color, color, screen, clocks):
-        GameObject.__init__(self, x, y, width, height)
+        super().__init__(x, y, width, height)
         self.font = pygame.font.Font('freesansbold.ttf', 15)
         self.text_color = text_color
         self.color = color
