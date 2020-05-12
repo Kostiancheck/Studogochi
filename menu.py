@@ -55,6 +55,18 @@ class InfoGameover(IDraw):
     def update_status(self, char, num):
         self.is_end(char, num)
 
+    def restart(self):
+        self.game_end = False
+        self.gamer.statistics['health'] = 100
+        self.gamer.statistics['fatigue'] = 100
+        self.gamer.statistics['grades'] = 0
+        self.gamer.statistics['money'] = 1000
+        self.gamer.statistics['alcohol'] = 10
+        for i in self.gamer.statistics.keys():
+            self.gamer.update_statistic(i, 0)
+        self.gamer.update_grades(0)
+        self.clocks.days = 0
+
     def is_end(self, stat, num):
         try:
             if stat == 'grades':
@@ -76,10 +88,10 @@ class InfoGameover(IDraw):
             surf = pygame.image.load(self.image)
 
             self.screen.blit(surf, (self.bounds.x + 100, self.bounds.y + 70))
-            game_over_exit = self.font.render("Presss Esc to exit", True,
+            game_over_exit = self.font.render("Presss Esc to exit or R to restart", True,
                                               self.txt_color,
                                               self.color)
-            self.screen.blit(game_over_exit, (self.bounds.x + 70, self.bounds.y + 200))
+            self.screen.blit(game_over_exit, (self.bounds.x + 10, self.bounds.y + 200))
             self.game_end = True
             pygame.display.update()
         except NegativeStatistic as m:
@@ -95,9 +107,9 @@ class InfoGameover(IDraw):
             surf = pygame.image.load(self.image)
 
             self.screen.blit(surf, (self.bounds.x + 100, self.bounds.y + 80))
-            game_over_exit = self.font.render("Presss Esc to exit", True,
+            game_over_exit = self.font.render("Presss Esc to exit R to restart", True,
                                               self.txt_color,
                                               self.color)
-            self.screen.blit(game_over_exit, (self.bounds.x + 70, self.bounds.y + 200))
+            self.screen.blit(game_over_exit, (self.bounds.x + 10, self.bounds.y + 200))
             self.game_end = True
             pygame.display.update()

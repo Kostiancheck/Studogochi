@@ -70,6 +70,9 @@ class Studogochi(Game):
 
         pygame.display.update()
 
+
+
+
     def run(self):
         pygame.display.set_caption('Studogochi')
         run = True
@@ -99,6 +102,9 @@ class Studogochi(Game):
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             run = False
+                        if event.key == pygame.K_r:
+                            self.gameover.restart()
+                            self.draw_all()
             elif m_open:
                 self.menu.open_menu(self.background_image, m_open)
                 for event in pygame.event.get():
