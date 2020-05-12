@@ -35,7 +35,8 @@ class Studogochi(Game):
                                            value=self.gamer.statistics['money'], surface=self.screen)
         self.statusbar_alcohol = StatusAlcohol(x=550, y=20, width=50, height=20, color=(0, 0, 102), txt_color=WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
-        self.timer = Timer(x=70, y=20, width=60, height=25, color=(255, 255, 255), txt_color=(0, 0, 0), value=0)  # ADDED
+        self.timer = Timer(x = 270, y = 270, width = 120, height = 90, color = (255, 255, 255), 
+                            txt_color = (0, 0, 0), value = 0, backgound = 'images/calendar.png')  # ADDED
         self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
                                      self.screen)
@@ -62,7 +63,10 @@ class Studogochi(Game):
         self.button_money.draw(self.screen)
         self.button_alcohol.draw(self.screen)
 
-        self.timer.draw(self.screen)
+        timer_value = self.timer.font.render(str(self.clocks.days), True,
+                                             self.timer.txt_color,
+                                             self.timer.color)
+        self.timer.draw(self.screen, timer_value)
 
         pygame.display.update()
 
@@ -108,13 +112,13 @@ class Studogochi(Game):
                             self.menu.open_menu(self.background_image, m_open)
             else:
                 # TIMER
-                elapsedTime = datetime.datetime.now() - self.timer.previous_time
+                elapsedTime = datetime.datetime.now() - self.clocks.previous_time
                 x = divmod(elapsedTime.total_seconds(), 60)
                 if int(x[1]) < TIMER_DAYS:
                     pass
                 else:
-                    self.timer.days += 1
-                    self.timer.previous_time = datetime.datetime.now()
+                    self.clocks.days += 1
+                    self.clocks.previous_time = datetime.datetime.now()
                     self.draw_all()
                     self.clock.tick(60)
                 self.draw_all()

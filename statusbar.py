@@ -52,19 +52,19 @@ class StatusAlcohol(AStatusBar):
 
 #ADDED
 class Timer(AStatusBar):
-    def __init__(self, x, y, width, height, color, txt_color, value):
+    def __init__(self, x, y, width, height, color, txt_color, value, backgound):
         AStatusBar.__init__(self, x, y, width, height, color, txt_color, value)
-        self.font = pygame.font.Font('freesansbold.ttf', 12)
-        self.days = 0
-        self.previous_time = datetime.datetime.now()
-
-    def draw(self, surface):
-        pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
-        timer_value = self.font.render(str(self.days) + '  days', True,
-                                       self.txt_color,
-                                       self.color)
-
-        surface.blit(timer_value, (self.bounds.x + 4, self.bounds.y))
+        self.backgound = backgound
+        self.font = pygame.font.Font('freesansbold.ttf', 30)
+    
+    def draw(self, surface, timer_value):
+        surf = pygame.image.load(self.backgound)
+        surf = pygame.transform.scale(surf, (self.width, self.height))
+        rect = surf.get_rect(bottomright=(self.bounds.x, self.bounds.y))
+        surface.blit(surf, rect)
+        text = self.font.render(str(timer_value), True, self.txt_color, self.color)
+        surface.blit(timer_value, (self.bounds.x-70, self.bounds.y-50))
+        pygame.display.update()
 
 class Clocks:
     def __init__(self, days, previous_time):
