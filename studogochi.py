@@ -40,7 +40,8 @@ class Studogochi(Game):
         self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
                                      self.screen)
-        self.menu = Menu(0, 0, 800, 600, (0, 0, 0), (255, 255, 255, 0.5), self.screen, self.clocks)
+        self.menu = Menu(x=0, y=0, width=720, height=640, text_color=(25, 25, 25),
+                         color=(242, 242, 242), screen=self.screen, clocks=self.clocks)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2

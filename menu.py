@@ -7,7 +7,7 @@ from interface_draw import IDraw
 class Menu(GameObject, IDraw):
     def __init__(self, x, y, width, height, text_color, color, screen, clocks):
         super().__init__(x, y, width, height)
-        self.font = pygame.font.Font('freesansbold.ttf', 15)
+        self.font = pygame.font.Font('fonts/Raleway-Light.ttf', 15)
         self.text_color = text_color
         self.color = color
         self.open = False
@@ -20,19 +20,23 @@ class Menu(GameObject, IDraw):
     def open_menu(self, background_image, trigger):
         if trigger:
             self.draw(self.screen)
+            self.screen.blit(pygame.font.Font('fonts/Montserrat-Thin.ttf', 45).render(
+                    'MENU', True, self.text_color), ((self.width/2)-70, 20))
+            pygame.draw.rect(self.screen, (25,25,25), (40, 80, self.width - 80, 1))
             data = list()
             data.append(["F1", "Show Help"])
             data.append(["Esc", "Exit Game"])
+            data.append(["R", "Restart Game  (Only if you lose)"])
             data.append(['You alived: ', str(self.clocks.days) + ' days in our wonderful university :)'])
             for i, text in enumerate(data):
                 self.screen.blit(self.font.render(
-                    text[0], True, (128, 128, 255)), (100, 100 + 30 * i))
+                    text[0], True, self.text_color), (100, 100 + 35 * i))
                 self.screen.blit(self.font.render(
-                    text[1], True, (128, 128, 255)), (200, 100 + 30 * i))
+                    text[1], True, self.text_color), (200, 100 + 35 * i))
             pygame.display.update()
         else:
             self.screen.blit(background_image, (0, 0))
-            pygame.display.update()
+           
 
 
 class InfoGameover(IDraw):
@@ -75,6 +79,7 @@ class InfoGameover(IDraw):
 
             elif int(num) <= 0:
                 raise NegativeStatistic(stat)
+
         except NegativeStatisticGrades as n:
             self.draw(self.screen)
             game_over_str = self.font.render("В армии увидимся", True,
@@ -94,6 +99,7 @@ class InfoGameover(IDraw):
             self.screen.blit(game_over_exit, (self.bounds.x + 10, self.bounds.y + 200))
             self.game_end = True
             pygame.display.update()
+
         except NegativeStatistic as m:
             self.draw(self.screen)
             game_over_str = self.font.render("GAMEOVER", True,
