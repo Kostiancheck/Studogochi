@@ -20,22 +20,22 @@ class Studogochi(Game):
         self.clock = pygame.time.Clock()
         self.objects = []
         self.gamer = Student(x=600, y=500, width=290, height=450, name='Bob', image='images/student_male.png')
-        self.button_health = Button(250, 575, 76, 50, 'images/buttons/eat_button.png', characteristic='health')
-        self.button_fatigue = Button(375, 575, 90, 50, 'images/buttons/sleep_button.png', characteristic='fatigue')
-        self.button_grades = GradesButton(460, 575, 59, 50, 'images/buttons/study_button.png', characteristic='grades')
-        self.button_money = Button(540, 575, 50, 50, 'images/buttons/money_button.png', characteristic='money')
-        self.button_alcohol = Button(625, 575, 51, 75, 'images/buttons/drink_button.png', characteristic='alcohol')
-        self.statusbar_health = StatusHealth(250, 20, 50, 20, (220, 20, 60), WHITE,
+        self.button_health = Button(x=250, y=575, width=95, height=95, image='images/buttons/eat_button.png', characteristic='health')
+        self.button_fatigue = Button(x=350, y=575, width=95, height=95, image='images/buttons/sleep_button.png', characteristic='fatigue')
+        self.button_grades = GradesButton(x=450, y=575, width=95, height=95, image='images/buttons/study_button.png', characteristic='grades')
+        self.button_money = Button(x=550, y=575, width=95, height=95, image='images/buttons/money_button.png', characteristic='money')
+        self.button_alcohol = Button(x=650, y=575, width=95, height=95, image='images/buttons/drink_button.png', characteristic='alcohol')
+        self.statusbar_health = StatusHealth(x=250, y=20, width=50, height=20, color=(220, 20, 60), txt_color=WHITE,
                                              value=self.gamer.statistics['health'], surface=self.screen)
-        self.statusbar_fatigue = StatusFatigue(325, 20, 50, 20, (0, 100, 0), WHITE,
+        self.statusbar_fatigue = StatusFatigue(x=325, y=20, width=50, height=20, color=(0, 100, 0), txt_color=WHITE,
                                                value=self.gamer.statistics['fatigue'], surface=self.screen)
-        self.statusbar_grades = StatusGrades(400, 20, 50, 20, (0, 128, 128), WHITE,
+        self.statusbar_grades = StatusGrades(x=400, y=20, width=50, height=20,color=(0, 128, 128), txt_color=WHITE,
                                              value=self.gamer.statistics['grades'], surface=self.screen)
-        self.statusbar_money = StatusMoney(475, 20, 50, 20, (255, 140, 0), WHITE,
+        self.statusbar_money = StatusMoney(x=475, y=20, width=50, height=20, color=(255, 140, 0), txt_color=WHITE,
                                            value=self.gamer.statistics['money'], surface=self.screen)
-        self.statusbar_alcohol = StatusAlcohol(550, 20, 50, 20, (0, 0, 102), WHITE,
+        self.statusbar_alcohol = StatusAlcohol(x=550, y=20, width=50, height=20, color=(0, 0, 102), txt_color=WHITE,
                                                value=self.gamer.statistics['alcohol'], surface=self.screen)
-        self.timer = Timer(70, 20, 60, 25, (255, 255, 255), (0, 0, 0), 0)  # ADDED
+        self.timer = Timer(x=70, y=20, width=60, height=25, color=(255, 255, 255), txt_color=(0, 0, 0), value=0)  # ADDED
         self.clocks = Clocks(0, datetime.datetime.now())
         self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
                                      self.screen)
@@ -63,10 +63,6 @@ class Studogochi(Game):
         self.button_alcohol.draw(self.screen)
 
         self.timer.draw(self.screen)
-        timer_value = self.timer.font.render(str(self.clocks.days) + '  days', True,
-                                             self.timer.txt_color,
-                                             self.timer.color)
-        self.screen.blit(timer_value, (self.timer.bounds.x + 4, self.timer.bounds.y))
 
         pygame.display.update()
 
@@ -112,13 +108,13 @@ class Studogochi(Game):
                             self.menu.open_menu(self.background_image, m_open)
             else:
                 # TIMER
-                elapsedTime = datetime.datetime.now() - self.clocks.previous_time
+                elapsedTime = datetime.datetime.now() - self.timer.previous_time
                 x = divmod(elapsedTime.total_seconds(), 60)
                 if int(x[1]) < TIMER_DAYS:
                     pass
                 else:
-                    self.clocks.days += 1
-                    self.clocks.previous_time = datetime.datetime.now()
+                    self.timer.days += 1
+                    self.timer.previous_time = datetime.datetime.now()
                     self.draw_all()
                     self.clock.tick(60)
                 self.draw_all()
@@ -152,16 +148,11 @@ class Studogochi(Game):
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('health', 10)
-                        pygame.time.wait(1000)
                     elif (self.button_fatigue.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('fatigue', 10)
-                        pygame.time.wait(1000)
                     elif (self.button_grades.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_grades(2)
-                        pygame.time.wait(1000)
                     elif (self.button_money.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('money', 10)
-                        pygame.time.wait(1000)
                     elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_statistic('alcohol', 10)
-                        pygame.time.wait(1000)

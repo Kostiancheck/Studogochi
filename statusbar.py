@@ -2,6 +2,7 @@ import pygame
 from game_object import GameObject
 from abc import ABC, abstractmethod
 from interface_draw import IDraw
+import datetime
 
 
 class AStatusBar(GameObject, IDraw):
@@ -53,6 +54,17 @@ class StatusAlcohol(AStatusBar):
 class Timer(AStatusBar):
     def __init__(self, x, y, width, height, color, txt_color, value):
         AStatusBar.__init__(self, x, y, width, height, color, txt_color, value)
+        self.font = pygame.font.Font('freesansbold.ttf', 12)
+        self.days = 0
+        self.previous_time = datetime.datetime.now()
+
+    def draw(self, surface):
+        pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
+        timer_value = self.font.render(str(self.days) + '  days', True,
+                                       self.txt_color,
+                                       self.color)
+
+        surface.blit(timer_value, (self.bounds.x + 4, self.bounds.y))
 
 class Clocks:
     def __init__(self, days, previous_time):
