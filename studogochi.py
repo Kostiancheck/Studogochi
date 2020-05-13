@@ -76,7 +76,7 @@ class Studogochi(Game):
         timer_value = self.timer.font.render(str(self.clocks.days), True,
                                              self.timer.txt_color,
                                              self.timer.color)
-        self.timer.draw(self.screen, timer_value)
+        self.timer.draw(self.screen, timer_value, self.clocks.days)
 
         pygame.display.update()
 
@@ -153,24 +153,24 @@ class Studogochi(Game):
 
                     # Уменьшаем значения
                     elif event.type == self.HEALTH_DECREASE:
-                        self.gamer.update_statistic('health', -5)
+                        self.gamer.update_statistic('health', -5, self.screen)
                     elif event.type == self.FATIGUE_DECREASE:
-                        self.gamer.update_statistic('fatigue', -8)
+                        self.gamer.update_statistic('fatigue', -8, self.screen)
                     elif event.type == self.MONEY_DECREASE:
-                        self.gamer.update_statistic('money', -7)
+                        self.gamer.update_statistic('money', -7, self.screen)
                     elif event.type == self.ALCOHOL_DECREASE:
-                        self.gamer.update_statistic('alcohol', -6)
+                        self.gamer.update_statistic('alcohol', -6, self.screen)
                     elif event.type == self.GRADES:
                         self.gamer.update_grades(0)
 
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('health', 10)
+                        self.gamer.update_statistic('health', 10, self.screen)
                     elif (self.button_fatigue.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('fatigue', 10)
+                        self.gamer.update_statistic('fatigue', 10, self.screen)
                     elif (self.button_grades.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_grades(2)
                     elif (self.button_money.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('money', 10)
+                        self.gamer.update_statistic('money', 10, self.screen)
                     elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('alcohol', 10)
+                        self.gamer.update_statistic('alcohol', 10, self.screen)

@@ -3,7 +3,7 @@ from game_object import GameObject
 from abc import ABC, abstractmethod
 from statusbar import *
 from interface_draw import IDraw
-
+import time
 
 class Student(GameObject, IDraw):
     def __init__(self, x, y, width, height, name, image):
@@ -32,10 +32,18 @@ class Student(GameObject, IDraw):
         self.__subscribers['grades'].update_status(self.statistics['grades'])
         self.__subscribers['gameover'].update_status('grades', self.statistics['grades'])
 
-    def update_statistic(self, characteristic, value):
-        self.statistics[characteristic] += value
-        self.__subscribers[characteristic].update_status(self.statistics[characteristic])
-        self.__subscribers['gameover'].update_status(characteristic,self.statistics[characteristic])
+    def update_statistic(self, characteristic, value, surface):
+        if (self.statistics[characteristic] + value) > 100 \
+            and (characteristic == 'health' or characteristic == 'fatigue'):
+            pass
+        elif (self.statistics[characteristic] + value) > 5000 and characteristic == 'money':
+            pass
+        elif (self.statistics[characteristic] + value) > 30 and characteristic == 'alcohol':
+            pass
+        else:
+            self.statistics[characteristic] += value
+            self.__subscribers[characteristic].update_status(self.statistics[characteristic])
+            self.__subscribers['gameover'].update_status(characteristic,self.statistics[characteristic])
 
     @property
     def name(self):

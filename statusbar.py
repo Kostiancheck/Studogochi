@@ -57,13 +57,20 @@ class Timer(AStatusBar):
         self.backgound = backgound
         self.font = pygame.font.Font('freesansbold.ttf', 30)
     
-    def draw(self, surface, timer_value):
+    def draw(self, surface, timer_value, val):
         surf = pygame.image.load(self.backgound)
         surf = pygame.transform.scale(surf, (self.width, self.height))
         rect = surf.get_rect(bottomright=(self.bounds.x, self.bounds.y))
         surface.blit(surf, rect)
-        text = self.font.render(str(timer_value), True, self.txt_color, self.color)
-        surface.blit(timer_value, (self.bounds.x-70, self.bounds.y-50))
+        if int(val) < 10:
+            text = self.font.render(str(timer_value), True, self.txt_color, self.color)
+            surface.blit(timer_value, (self.bounds.x-(10+self.width/2), self.bounds.y-45))
+        elif int(val) < 100:
+            text = self.font.render(str(timer_value), True, self.txt_color, self.color)
+            surface.blit(timer_value, (self.bounds.x-(19+self.width/2), self.bounds.y-45))
+        else:
+            text = self.font.render(str(timer_value), True, self.txt_color, self.color)
+            surface.blit(timer_value, (self.bounds.x-(27+self.width/2), self.bounds.y-45))
         pygame.display.update()
 
 class Clocks:
