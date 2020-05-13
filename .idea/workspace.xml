@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statusbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusbar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/backgrounds/fatigue_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/backgrounds/fatigue_back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/buttons/sleep_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/student.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studogochi.py" beforeDir="false" afterPath="$PROJECT_DIR$/studogochi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +47,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
@@ -52,7 +57,29 @@
       <recent name="C:\Users\Kostian\PycharmProjects\OOP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.aaaaaa">
+    <configuration name="aaaaaa" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OOP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/aaaaaa.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OOP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,7 +102,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="student" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OOP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/student.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OOP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -88,7 +137,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Kostian\PycharmProjects\OOP\test1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,12 +148,16 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.test" />
+      <item itemvalue="Python.student" />
+      <item itemvalue="Python.test1" />
+      <item itemvalue="Python.aaaaaa" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.aaaaaa" />
+        <item itemvalue="Python.test1" />
+        <item itemvalue="Python.student" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -150,6 +203,7 @@
       <workItem from="1589128954226" duration="526000" />
       <workItem from="1589129498956" duration="2967000" />
       <workItem from="1589193709790" duration="5889000" />
+      <workItem from="1589361694045" duration="1258000" />
     </task>
     <task id="LOCAL-00001" summary="Fix problem with statusbar's value">
       <created>1585590613188</created>
@@ -211,12 +265,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix problem with statusbar's value" />
@@ -265,37 +320,41 @@
       <screen x="71" y="34" width="1849" height="1046" />
     </state>
     <state x="591" y="57" width="798" height="997" key="#test/71.34.1849.1046@71.34.1849.1046" timestamp="1589304609619" />
+    <state x="389" y="200" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1589361750568">
+      <screen x="0" y="0" width="1280" height="688" />
+    </state>
+    <state x="389" y="200" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.688@0.0.1280.688" timestamp="1589361750568" />
     <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1588795328166">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1588795328166" />
-    <state x="122" y="51" key="DiffContextDialog" timestamp="1588625048869">
+    <state x="116" y="22" width="1024" height="579" key="DiffContextDialog" timestamp="1589362015230">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="122" y="51" key="DiffContextDialog/0.0.1280.688@0.0.1280.688" timestamp="1588625048869" />
+    <state x="116" y="22" width="1024" height="579" key="DiffContextDialog/0.0.1280.688@0.0.1280.688" timestamp="1589362015230" />
     <state x="360" y="108" key="FileChooserDialogImpl" timestamp="1588626426714">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="360" y="108" key="FileChooserDialogImpl/0.0.1280.688@0.0.1280.688" timestamp="1588626426714" />
-    <state width="1821" height="270" key="GridCell.Tab.0.bottom" timestamp="1589306764888">
-      <screen x="71" y="34" width="1849" height="1046" />
+    <state width="529" height="161" key="GridCell.Tab.0.bottom" timestamp="1589363022494">
+      <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="161" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1589224431919" />
+    <state width="529" height="161" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1589363022494" />
     <state width="1821" height="270" key="GridCell.Tab.0.bottom/71.34.1849.1046@71.34.1849.1046" timestamp="1589306764888" />
-    <state width="1821" height="270" key="GridCell.Tab.0.center" timestamp="1589306764887">
-      <screen x="71" y="34" width="1849" height="1046" />
+    <state width="529" height="161" key="GridCell.Tab.0.center" timestamp="1589363022494">
+      <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="161" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1589224431919" />
+    <state width="529" height="161" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1589363022494" />
     <state width="1821" height="270" key="GridCell.Tab.0.center/71.34.1849.1046@71.34.1849.1046" timestamp="1589306764887" />
-    <state width="1821" height="270" key="GridCell.Tab.0.left" timestamp="1589306764886">
-      <screen x="71" y="34" width="1849" height="1046" />
+    <state width="529" height="161" key="GridCell.Tab.0.left" timestamp="1589363022494">
+      <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="161" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1589224431919" />
+    <state width="529" height="161" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1589363022494" />
     <state width="1821" height="270" key="GridCell.Tab.0.left/71.34.1849.1046@71.34.1849.1046" timestamp="1589306764886" />
-    <state width="1821" height="270" key="GridCell.Tab.0.right" timestamp="1589306764888">
-      <screen x="71" y="34" width="1849" height="1046" />
+    <state width="529" height="161" key="GridCell.Tab.0.right" timestamp="1589363022494">
+      <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="1237" height="161" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1589224431919" />
+    <state width="529" height="161" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1589363022494" />
     <state width="1821" height="270" key="GridCell.Tab.0.right/71.34.1849.1046@71.34.1849.1046" timestamp="1589306764888" />
     <state width="1237" height="207" key="GridCell.Tab.1.bottom" timestamp="1589134692411">
       <screen x="0" y="0" width="1280" height="688" />
@@ -341,5 +400,9 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state width="600" height="424" key="javadoc.popup/0.0.1280.688@0.0.1280.688" timestamp="1585341515591" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OOP$student.coverage" NAME="student Coverage Results" MODIFIED="1589362062808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OOP$aaaaaa.coverage" NAME="aaaaaa Coverage Results" MODIFIED="1589363022481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

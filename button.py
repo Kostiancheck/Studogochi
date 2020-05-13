@@ -9,21 +9,25 @@ import time
 class AButton(GameObject, IDraw):
     """This is abstract class of buttons for making new buttons to control student"""
 
-    def __init__(self,  x, y, width, height, image, characteristic):
+    def __init__(self, x, y, width, height, image, characteristic):
         super().__init__(x, y, width, height)
         self.image = image
         self.characteristic = characteristic
 
+
     def draw(self, surface):
-        images = pygame.image.load(self.image)
-        rect = images.get_rect(bottomright=(self.bounds.x, self.bounds.y))
-        surface.blit(images, rect)
+        button_icon = pygame.image.load(self.image)
+        button_icon = pygame.transform.scale(button_icon, (self.width, self.height))
+        rect = button_icon.get_rect(bottomright=(self.bounds.x, self.bounds.y))
+        surface.blit(button_icon, rect)
+
+    def in_circle(self, mouse_x, mouse_y):
+        if ((mouse_x - self.bounds.x + self.width / 2) ** 2 + \
+                (mouse_y - self.bounds.y + self.height / 2) ** 2 <= (self.height/2) ** 2):
+            return True
 
     def push(self, mouse_x, mouse_y, mouse_click, surface):
-        if (self.bounds.x > mouse_x > self.bounds.x - self.width and
-                self.bounds.y > mouse_y > self.bounds.y - self.height and
-                mouse_click == 1):
-
+        if (mouse_click == 1 and self.in_circle(mouse_x, mouse_y)):
             # Change button's color
             # pushed_mouse_color = (0, 191, 255)
             # self.color, pushed_mouse_color = pushed_mouse_color, self.color
@@ -47,5 +51,6 @@ class Button(AButton):
 
 class GradesButton(AButton):
     """This method will be changed in (not) nearest future"""
+
     def increase(self, value, gamer):
         gamer.update_grades(self.characteristic, value)
