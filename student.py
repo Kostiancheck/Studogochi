@@ -5,8 +5,9 @@ from statusbar import *
 from interface_draw import IDraw
 import time
 
+
 class Student(GameObject, IDraw):
-    def __init__(self, x, y, width, height, name, image):
+    def __init__(self, x, y, width, height, name, image, surface):
         super().__init__(x, y, width, height)
         self._name = name
         self.image = image
@@ -21,6 +22,7 @@ class Student(GameObject, IDraw):
                            }
         self.__subscribers = {}
         self.font = pygame.font.Font('freesansbold.ttf', 25)
+        self.surface = surface
 
     def subscribe(self, characteristic, subscriber, ):
         self.__subscribers[characteristic] = subscriber
@@ -34,7 +36,7 @@ class Student(GameObject, IDraw):
 
     def update_statistic(self, characteristic, value, surface):
         if (self.statistics[characteristic] + value) > 100 \
-            and (characteristic == 'health' or characteristic == 'fatigue'):
+                and (characteristic == 'health' or characteristic == 'fatigue'):
             pass
         elif (self.statistics[characteristic] + value) > 5000 and characteristic == 'money':
             pass
@@ -43,7 +45,7 @@ class Student(GameObject, IDraw):
         else:
             self.statistics[characteristic] += value
             self.__subscribers[characteristic].update_status(self.statistics[characteristic])
-            self.__subscribers['gameover'].update_status(characteristic,self.statistics[characteristic])
+            self.__subscribers['gameover'].update_status(characteristic, self.statistics[characteristic])
 
     @property
     def name(self):
@@ -54,11 +56,11 @@ class Student(GameObject, IDraw):
         print("You can't do this operation!")
         return 0
 
-    def draw(self, surface):
+    def draw(self):
         surf = pygame.image.load(self.image)
         surf = pygame.transform.scale(surf, (self.width, self.height))
         rect = surf.get_rect(bottomright=(self.bounds.x, self.bounds.y))
-        surface.blit(surf, rect)
+        self.surface.blit(surf, rect)
         text = self.font.render(str(self._name), True, (255, 0, 0),
                                 (255, 255, 255))
-        surface.blit(text, (self.bounds.x - 130, self.bounds.y))
+        self.surface.blit(text, (self.bounds.x - 130, self.bounds.y))

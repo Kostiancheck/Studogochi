@@ -25,7 +25,7 @@ class Menu(GameObject, IDraw):
                     'MENU', True, self.text_color), ((self.width/2)-70, 20))
             pygame.draw.rect(self.screen, (25,25,25), (40, 80, self.width - 80, 1))
             data = list()
-            data.append(["F1", "Show Help"])
+            data.append(["F1", "Show/Close Help"])
             data.append(["Esc", "Exit Game"])
             data.append(["R", "Restart Game  (Only if you lose)"])
             data.append(['You alived: ', str(self.clocks.days) + ' days in our wonderful university :)'])

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/student_female.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/backgrounds/fatigue_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/backgrounds/fatigue_back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/buttons/sleep_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statusbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusbar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/student.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studogochi.py" beforeDir="false" afterPath="$PROJECT_DIR$/studogochi.py" afterDir="false" />
     </list>
@@ -45,19 +45,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kostian\PycharmProjects\OOP\fonts" />
       <recent name="C:\Users\Kostian\PycharmProjects\OOP\images" />
+      <recent name="C:\Users\Kostian\PycharmProjects\OOP\fonts" />
       <recent name="C:\Users\Kostian\PycharmProjects\OOP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.aaaaaa">
+  <component name="RunManager" selected="Python.main">
     <configuration name="aaaaaa" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OOP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -147,17 +147,17 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.aaaaaa" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.student" />
       <item itemvalue="Python.test1" />
-      <item itemvalue="Python.aaaaaa" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.aaaaaa" />
         <item itemvalue="Python.test1" />
         <item itemvalue="Python.student" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +203,9 @@
       <workItem from="1589128954226" duration="526000" />
       <workItem from="1589129498956" duration="2967000" />
       <workItem from="1589193709790" duration="5889000" />
-      <workItem from="1589361694045" duration="1258000" />
+      <workItem from="1589361694045" duration="2369000" />
+      <workItem from="1589397390130" duration="983000" />
+      <workItem from="1589398383708" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="Fix problem with statusbar's value">
       <created>1585590613188</created>
@@ -254,7 +256,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588795184799</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Make beautiful buttons. Change width and height of main window, so we need to change menu coordinats. Add some pictures to the images folder">
+      <created>1589363181000</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589363181000</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add sleep_button.png, coffin.png and gameover_back.png">
+      <created>1589363451530</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1589363451530</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +296,9 @@
     <MESSAGE value="Rename info_gameover as InfoGameover, rename Main.py as main.py, delete print(stat) in is_end function" />
     <MESSAGE value="I fix bug with clocks, but may be I crashed something else. Check my commit, please" />
     <MESSAGE value="Delete buttons classes, create IDraw interface in interface_draw.py. Now all classes which have draw() method inherit IDraw" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete buttons classes, create IDraw interface in interface_draw.py. Now all classes which have draw() method inherit IDraw" />
+    <MESSAGE value="Make beautiful buttons. Change width and height of main window, so we need to change menu coordinats. Add some pictures to the images folder" />
+    <MESSAGE value="Add sleep_button.png, coffin.png and gameover_back.png" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sleep_button.png, coffin.png and gameover_back.png" />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="57" width="798" height="997" key="#Main" timestamp="1588500882640">
@@ -324,37 +342,37 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="389" y="200" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.688@0.0.1280.688" timestamp="1589361750568" />
-    <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1588795328166">
+    <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1589363450769">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1588795328166" />
+    <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1589363450769" />
     <state x="116" y="22" width="1024" height="579" key="DiffContextDialog" timestamp="1589362015230">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="116" y="22" width="1024" height="579" key="DiffContextDialog/0.0.1280.688@0.0.1280.688" timestamp="1589362015230" />
-    <state x="360" y="108" key="FileChooserDialogImpl" timestamp="1588626426714">
+    <state x="135" y="111" key="FileChooserDialogImpl" timestamp="1589398415574">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="360" y="108" key="FileChooserDialogImpl/0.0.1280.688@0.0.1280.688" timestamp="1588626426714" />
-    <state width="529" height="161" key="GridCell.Tab.0.bottom" timestamp="1589363022494">
+    <state x="135" y="111" key="FileChooserDialogImpl/0.0.1280.688@0.0.1280.688" timestamp="1589398415574" />
+    <state width="529" height="161" key="GridCell.Tab.0.bottom" timestamp="1589364201935">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="529" height="161" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1589363022494" />
+    <state width="529" height="161" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1589364201935" />
     <state width="1821" height="270" key="GridCell.Tab.0.bottom/71.34.1849.1046@71.34.1849.1046" timestamp="1589306764888" />
-    <state width="529" height="161" key="GridCell.Tab.0.center" timestamp="1589363022494">
+    <state width="529" height="161" key="GridCell.Tab.0.center" timestamp="1589364201935">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="529" height="161" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1589363022494" />
+    <state width="529" height="161" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1589364201935" />
     <state width="1821" height="270" key="GridCell.Tab.0.center/71.34.1849.1046@71.34.1849.1046" timestamp="1589306764887" />
-    <state width="529" height="161" key="GridCell.Tab.0.left" timestamp="1589363022494">
+    <state width="529" height="161" key="GridCell.Tab.0.left" timestamp="1589364201935">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="529" height="161" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1589363022494" />
+    <state width="529" height="161" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1589364201935" />
     <state width="1821" height="270" key="GridCell.Tab.0.left/71.34.1849.1046@71.34.1849.1046" timestamp="1589306764886" />
-    <state width="529" height="161" key="GridCell.Tab.0.right" timestamp="1589363022494">
+    <state width="529" height="161" key="GridCell.Tab.0.right" timestamp="1589364201935">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state width="529" height="161" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1589363022494" />
+    <state width="529" height="161" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1589364201935" />
     <state width="1821" height="270" key="GridCell.Tab.0.right/71.34.1849.1046@71.34.1849.1046" timestamp="1589306764888" />
     <state width="1237" height="207" key="GridCell.Tab.1.bottom" timestamp="1589134692411">
       <screen x="0" y="0" width="1280" height="688" />
@@ -372,14 +390,14 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state width="1237" height="207" key="GridCell.Tab.1.right/0.0.1280.688@0.0.1280.688" timestamp="1589134692411" />
-    <state x="164" y="0" key="SettingsEditor" timestamp="1589222083607">
+    <state x="164" y="0" key="SettingsEditor" timestamp="1589398427775">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1589222083607" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1588957994769">
+    <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1589398427775" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589363459727">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1588957994769" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589363459727" />
     <state x="450" y="261" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588625020179">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -392,10 +410,10 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="424" y="57" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.688@0.0.1280.688" timestamp="1588625051489" />
-    <state x="366" y="136" key="git4idea.merge.GitPullDialog" timestamp="1589129025632">
+    <state x="366" y="136" key="git4idea.merge.GitPullDialog" timestamp="1589397504691">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="366" y="136" key="git4idea.merge.GitPullDialog/0.0.1280.688@0.0.1280.688" timestamp="1589129025632" />
+    <state x="366" y="136" key="git4idea.merge.GitPullDialog/0.0.1280.688@0.0.1280.688" timestamp="1589397504691" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1585341515591">
       <screen x="0" y="0" width="1280" height="688" />
     </state>

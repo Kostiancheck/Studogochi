@@ -9,17 +9,18 @@ import time
 class AButton(GameObject, IDraw):
     """This is abstract class of buttons for making new buttons to control student"""
 
-    def __init__(self, x, y, width, height, image, characteristic):
+    def __init__(self, x, y, width, height, image, characteristic, surface):
         super().__init__(x, y, width, height)
         self.image = image
         self.characteristic = characteristic
+        self.surface = surface
 
 
-    def draw(self, surface):
+    def draw(self):
         button_icon = pygame.image.load(self.image)
         button_icon = pygame.transform.scale(button_icon, (self.width, self.height))
         rect = button_icon.get_rect(bottomright=(self.bounds.x, self.bounds.y))
-        surface.blit(button_icon, rect)
+        self.surface.blit(button_icon, rect)
 
     def in_circle(self, mouse_x, mouse_y):
         if ((mouse_x - self.bounds.x + self.width / 2) ** 2 + \

@@ -6,23 +6,31 @@ import datetime
 
 
 class AStatusBar(GameObject, IDraw):
-    def __init__(self, x, y, width, height, color, txt_color, value, surface=None):
+    def __init__(self, x, y, width, height, txt_color, value, background=None, characteristic=None,
+                 surface=None):
         super().__init__(x, y, width, height)
-        self.color = color
         self.value = value
         self.txt_color = txt_color
+        self.font = pygame.font.Font('fonts/Indie_Flower/IndieFlower.ttf', 40)
+        self.background = background
+        self.characteristic = characteristic
         self.surface = surface
-        self.font = pygame.font.Font('freesansbold.ttf', 12)
+
     """ЭТО АБСТРАКТНЫЙ КЛАСС, ПОТОМУ ЧТО КАЖДЫЙ СТАТУСБАР В ИДЕАЛЕ ОТРИСОВЫВАЕТСЯ ПО РАЗНОМУ"""
-    def draw(self, surface):
-        pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
-        value = self.font.render(str(self.value), True, self.txt_color, self.color)
-        surface.blit(value, (self.bounds.x + 13, self.bounds.y))
+
+    def draw(self):
+        statusbar_background = pygame.image.load(self.background)
+        statusbar_background = pygame.transform.scale(statusbar_background, (self.width, self.height))
+        rect = statusbar_background.get_rect(bottomright=(self.bounds.x, self.bounds.y))
+        self.surface.blit(statusbar_background, rect)
+
+        value = self.font.render(self.characteristic+': '+str(self.value), True, self.txt_color)
+        self.surface.blit(value, (self.bounds.x - self.width + 10, self.bounds.y - self.height))
 
     def update_status(self, num):
         self.value = num
-        text = self.font.render(str(self.value), True, self.txt_color, self.color)
-        self.surface.blit(text, (self.bounds.x+13, self.bounds.y))
+        text = self.font.render(str(self.value), True, self.txt_color)
+        self.surface.blit(text, (self.bounds.x + 13, self.bounds.y))
         pygame.display.update()
 
 
@@ -31,50 +39,56 @@ TOP RIGHT EDGE AND NEXT TWO PARAMETRS IS WIDTH AND HEIGHT"""
 
 
 class StatusHealth(AStatusBar):
-    def __init__(self, x, y, width, height, color, txt_color, value, surface):
-        AStatusBar.__init__(self, x, y, width, height, color, txt_color, value, surface)
+    def __init__(self, x, y, width, height, txt_color, value, background, characteristic, surface):
+        super().__init__(x, y, width, height, txt_color, value, background, characteristic, surface)
+
 
 class StatusFatigue(AStatusBar):
-    def __init__(self, x, y, width, height, color, txt_color, value, surface):
-        AStatusBar.__init__(self, x, y, width, height, color, txt_color, value, surface)
+    def __init__(self, x, y, width, height, txt_color, value, background, characteristic, surface):
+        super().__init__(x, y, width, height, txt_color, value, background, characteristic, surface)
+
 
 class StatusGrades(AStatusBar):
-    def __init__(self, x, y, width, height, color, txt_color, value, surface):
-        AStatusBar.__init__(self, x, y, width, height, color, txt_color, value, surface)
+    def __init__(self, x, y, width, height, txt_color, value, background, characteristic, surface):
+        super().__init__(x, y, width, height, txt_color, value, background, characteristic, surface)
+
 
 class StatusMoney(AStatusBar):
-    def __init__(self, x, y, width, height, color, txt_color, value, surface):
-        AStatusBar.__init__(self, x, y, width, height, color, txt_color, value, surface)
+    def __init__(self, x, y, width, height, txt_color, value, background, characteristic, surface):
+        super().__init__(x, y, width, height, txt_color, value, background, characteristic, surface)
+
 
 class StatusAlcohol(AStatusBar):
-    def __init__(self, x, y, width, height, color, txt_color, value, surface):
-        AStatusBar.__init__(self, x, y, width, height, color, txt_color, value, surface)
+    def __init__(self, x, y, width, height, txt_color, value, background, characteristic, surface):
+        super().__init__(x, y, width, height, txt_color, value, background, characteristic, surface)
 
-#ADDED
+
+# ADDED
 class Timer(AStatusBar):
-    def __init__(self, x, y, width, height, color, txt_color, value, backgound):
-        AStatusBar.__init__(self, x, y, width, height, color, txt_color, value)
-        self.backgound = backgound
+    def __init__(self, x, y, width, height, txt_color, value, background, surface=None):
+        super().__init__(x, y, width, height, txt_color, value)
+        self.background = background
         self.font = pygame.font.Font('freesansbold.ttf', 30)
-    
-    def draw(self, surface, timer_value, val):
-        surf = pygame.image.load(self.backgound)
+        self.surface = surface
+
+    def draw(self, timer_value, val):
+        surf = pygame.image.load(self.background)
         surf = pygame.transform.scale(surf, (self.width, self.height))
         rect = surf.get_rect(bottomright=(self.bounds.x, self.bounds.y))
-        surface.blit(surf, rect)
+        self.surface.blit(surf, rect)
         if int(val) < 10:
-            text = self.font.render(str(timer_value), True, self.txt_color, self.color)
-            surface.blit(timer_value, (self.bounds.x-(10+self.width/2), self.bounds.y-45))
+            text = self.font.render(str(timer_value), True, self.txt_color)
+            self.surface.blit(timer_value, (self.bounds.x - (10 + self.width / 2), self.bounds.y - 45))
         elif int(val) < 100:
-            text = self.font.render(str(timer_value), True, self.txt_color, self.color)
-            surface.blit(timer_value, (self.bounds.x-(19+self.width/2), self.bounds.y-45))
+            text = self.font.render(str(timer_value), True, self.txt_color)
+            self.surface.blit(timer_value, (self.bounds.x - (19 + self.width / 2), self.bounds.y - 45))
         else:
-            text = self.font.render(str(timer_value), True, self.txt_color, self.color)
-            surface.blit(timer_value, (self.bounds.x-(27+self.width/2), self.bounds.y-45))
+            text = self.font.render(str(timer_value), True, self.txt_color)
+            self.surface.blit(timer_value, (self.bounds.x - (27 + self.width / 2), self.bounds.y - 45))
         pygame.display.update()
+
 
 class Clocks:
     def __init__(self, days, previous_time):
         self.days = days
         self.previous_time = previous_time
-
