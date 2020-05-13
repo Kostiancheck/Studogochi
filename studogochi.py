@@ -10,12 +10,12 @@ from menu import *
 
 WHITE = (255, 255, 255)
 TIMER_DAYS = 5  # ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ
-
+SIZE_OF_WINDOW = (640, 660)
 
 class Studogochi(Game):
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((640, 660))
+        self.screen = pygame.display.set_mode(SIZE_OF_WINDOW)
         self.background_image = pygame.image.load('images/backgrounds/main_background.png')
         self.buttons_background = pygame.image.load('images/backgrounds/buttons_back.png')
         self.clock = pygame.time.Clock()
@@ -45,9 +45,10 @@ class Studogochi(Game):
         self.timer = Timer(x=270, y=270, width=120, height=90, color=(255, 255, 255),
                            txt_color=(0, 0, 0), value=0, backgound='images/calendar.png')  # ADDED
         self.clocks = Clocks(0, datetime.datetime.now())
-        self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
-                                     self.screen)
-        self.menu = Menu(x=0, y=0, width=720, height=640, text_color=(25, 25, 25),
+        self.gameover = InfoGameover(x=250, y=160, width=550, height=550, 
+                                    color=(255, 255, 255), txt_color=(0, 0, 0), value=0, gamer=self.gamer, 
+                                    clocks=self.clocks, screen=self.screen, size_of_window=SIZE_OF_WINDOW)
+        self.menu = Menu(x=0, y=0, width=SIZE_OF_WINDOW[0], height=SIZE_OF_WINDOW[1], text_color=(25, 25, 25),
                          color=(243, 243, 243, 140), screen=self.screen, clocks=self.clocks)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
@@ -84,7 +85,7 @@ class Studogochi(Game):
         run = True
         m_open = False
         pygame.time.set_timer(self.HEALTH_DECREASE, 5000)
-        pygame.time.set_timer(self.FATIGUE_DECREASE, 5000)
+        pygame.time.set_timer(self.FATIGUE_DECREASE, 5000) #5000
         pygame.time.set_timer(self.MONEY_DECREASE, 10000)
         pygame.time.set_timer(self.ALCOHOL_DECREASE, 35000)
         pygame.time.set_timer(self.GRADES, 10000)

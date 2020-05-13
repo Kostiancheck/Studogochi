@@ -40,22 +40,30 @@ class Menu(GameObject, IDraw):
            
 
 
-class InfoGameover(IDraw):
-    def __init__(self, x, y, width, height, color, txt_color, value, gamer, clocks, screen, surface=None):
-        GameObject.__init__(self, x, y, width, height)
+class InfoGameover(GameObject, IDraw):
+    def __init__(self, x, y, width, height, color, txt_color, value, gamer, clocks, screen, size_of_window, surface=None):
+        super().__init__(x, y, width, height)
         self.color = color
         self.value = value
         self.txt_color = txt_color
         self.surface = surface
-        self.font = pygame.font.Font('freesansbold.ttf', 20)
+        self.font = pygame.font.Font('fonts/Indie_Flower/IndieFlower.ttf', 30)
         self.image = 'images/game_over.jpg'
         self.game_end = False
         self.gamer = gamer
         self.clocks = clocks
         self.screen = screen
+        self.size_of_window = size_of_window
 
     def draw(self, surface):
-        pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
+        surf = pygame.image.load('images/backgrounds/gameover_back.png')
+        surf = pygame.transform.scale(surf, (self.width, self.height))
+        a = (self.size_of_window[0]-self.width)/2
+        b = (self.size_of_window[1]-self.height)/2
+        rect = surf.get_rect(bottomright=(self.width+a, self.height+b))
+        surface.blit(surf, rect)
+        return (a, b)
+        #pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
 
     def update_status(self, char, num):
         self.is_end(char, num)
@@ -102,21 +110,27 @@ class InfoGameover(IDraw):
             pygame.display.update()
 
         except NegativeStatistic as m:
-            self.draw(self.screen)
-            game_over_str = self.font.render("GAMEOVER", True,
+            sizes = self.draw(self.screen)
+            font_1 = pygame.font.Font('fonts/Indie_Flower/IndieFlower.ttf', 50)
+            game_over_str = font_1.render("Game over", True,
                                              self.txt_color,
                                              self.color)
-            self.screen.blit(game_over_str, (self.bounds.x + 90, self.bounds.y + 5))
-            game_over_why = self.font.render("because of {}".format(m), True,
+            game_over_str.set_colorkey(self.color)
+            self.screen.blit(game_over_str, (sizes[0]+(self.width/2)-110, sizes[1]+20))
+            surf = pygame.image.load('images/coffin.png')
+            a = (self.width-147)/2
+            b = (self.height-252)/2
+            rect = surf.get_rect(bottomright=(a+200,b+252))
+            self.screen.blit(surf, rect)
+            game_over_why = self.font.render("You lose because of {}".format(m), True,
                                              self.txt_color,
                                              self.color)
-            self.screen.blit(game_over_why, (self.bounds.x + 60, self.bounds.y + 40))
-            surf = pygame.image.load(self.image)
-
-            self.screen.blit(surf, (self.bounds.x + 100, self.bounds.y + 80))
+            game_over_why.set_colorkey(self.color)
+            self.screen.blit(game_over_why, (sizes[0]+(self.width/2)-170, sizes[1]+400))
             game_over_exit = self.font.render("Presss Esc to exit R to restart", True,
                                               self.txt_color,
                                               self.color)
-            self.screen.blit(game_over_exit, (self.bounds.x + 10, self.bounds.y + 200))
+            game_over_exit.set_colorkey(self.color)
+            self.screen.blit(game_over_exit, (sizes[0]+(self.width/2)-190, sizes[1]+450))
             self.game_end = True
             pygame.display.update()
