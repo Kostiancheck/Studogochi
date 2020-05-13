@@ -11,7 +11,7 @@ class Student(GameObject, IDraw):
         self._name = name
         self.image = image
         self.statistics = {'health': 100,
-                           'fatigue': 100,
+                           'fatigue': -2,
                            # Сделать много подпунтков в пункте "Grades"
                            # 'Grades': {'Матеша': 0,
                            # 		'ФП': 0},

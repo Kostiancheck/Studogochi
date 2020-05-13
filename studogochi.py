@@ -41,7 +41,7 @@ class Studogochi(Game):
         self.gameover = InfoGameover(250, 160, 300, 300, (255, 255, 255), (0, 0, 0), 0, self.gamer, self.clocks,
                                      self.screen)
         self.menu = Menu(x=0, y=0, width=720, height=640, text_color=(25, 25, 25),
-                         color=(242, 242, 242), screen=self.screen, clocks=self.clocks)
+                         color=(243,243,243,140), screen=self.screen, clocks=self.clocks)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
@@ -117,6 +117,7 @@ class Studogochi(Game):
                         if event.key == pygame.K_F1:
                             m_open = False
                             self.menu.open_menu(self.background_image, m_open)
+                            
             else:
                 # TIMER
                 elapsedTime = datetime.datetime.now() - self.clocks.previous_time

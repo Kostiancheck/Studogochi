@@ -15,7 +15,8 @@ class Menu(GameObject, IDraw):
         self.clocks = clocks
 
     def draw(self, surface):
-        pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
+        surface.fill(self.color)
+        #pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
 
     def open_menu(self, background_image, trigger):
         if trigger:
