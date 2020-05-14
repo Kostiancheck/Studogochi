@@ -35,7 +35,7 @@ class Studogochi(Game):
         self.button_alcohol = Button(x=149, y=646, width=90, height=90, image='images/buttons/drink_button.png',
                                      characteristic='alcohol', surface=self.screen)
         self.statusbar_health = StatusAlcohol(x=350, y=150, width=290, height=65, txt_color=WHITE,
-                                              value=self.gamer.statistics['alcohol'], surface=self.screen,
+                                              value=self.gamer.statistics['health'], surface=self.screen,
                                               background='images/backgrounds/health_back.png',
                                               characteristic='health')
         self.statusbar_fatigue = StatusFatigue(x=640, y=150, width=290, height=65, txt_color=WHITE,
@@ -103,8 +103,7 @@ class Studogochi(Game):
 
         self.gamer.subscribe('health', self.statusbar_health)  # TODO возможно не нужно каждый раз их подписывать
         self.gamer.subscribe('fatigue', self.statusbar_fatigue)
-        self.gamer.subscribe('grades',
-                             self.statusbar_grades)  # Вынести названия статусбаров в список и подписывать их в цикле
+        self.gamer.subscribe('grades', self.statusbar_grades)  # Вынести названия статусбаров в список и подписывать их в цикле
         self.gamer.subscribe('money', self.statusbar_money)
         self.gamer.subscribe('alcohol', self.statusbar_alcohol)
         self.gamer.subscribe('gameover', self.gameover)

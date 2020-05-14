@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/images/student_female.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/backgrounds/alcohol_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/backgrounds/alcohol_back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/backgrounds/grades_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/backgrounds/grades_back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/backgrounds/money_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/backgrounds/money_back.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statusbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusbar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/student.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studogochi.py" beforeDir="false" afterPath="$PROJECT_DIR$/studogochi.py" afterDir="false" />
@@ -206,6 +206,7 @@
       <workItem from="1589361694045" duration="2369000" />
       <workItem from="1589397390130" duration="983000" />
       <workItem from="1589398383708" duration="45000" />
+      <workItem from="1589449323617" duration="1336000" />
     </task>
     <task id="LOCAL-00001" summary="Fix problem with statusbar's value">
       <created>1585590613188</created>
@@ -270,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589363451530</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add surface as class' attributes. Add statusbars' backgrounds. Add student_female.png. Replace calendar">
+      <created>1589403392463</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1589403392463</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +306,8 @@
     <MESSAGE value="Delete buttons classes, create IDraw interface in interface_draw.py. Now all classes which have draw() method inherit IDraw" />
     <MESSAGE value="Make beautiful buttons. Change width and height of main window, so we need to change menu coordinats. Add some pictures to the images folder" />
     <MESSAGE value="Add sleep_button.png, coffin.png and gameover_back.png" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add sleep_button.png, coffin.png and gameover_back.png" />
+    <MESSAGE value="Add surface as class' attributes. Add statusbars' backgrounds. Add student_female.png. Replace calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add surface as class' attributes. Add statusbars' backgrounds. Add student_female.png. Replace calendar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="57" width="798" height="997" key="#Main" timestamp="1588500882640">
@@ -342,10 +351,10 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="389" y="200" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.688@0.0.1280.688" timestamp="1589361750568" />
-    <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1589363450769">
+    <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1589403391786">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1589363450769" />
+    <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1589403391786" />
     <state x="116" y="22" width="1024" height="579" key="DiffContextDialog" timestamp="1589362015230">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -394,10 +403,10 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1589398427775" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589363459727">
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589403403773">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589363459727" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589403403773" />
     <state x="450" y="261" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588625020179">
       <screen x="0" y="0" width="1280" height="688" />
     </state>

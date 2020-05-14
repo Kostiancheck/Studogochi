@@ -29,9 +29,8 @@ class AStatusBar(GameObject, IDraw):
 
     def update_status(self, num):
         self.value = num
-        text = self.font.render(str(self.value), True, self.txt_color)
-        self.surface.blit(text, (self.bounds.x + 13, self.bounds.y))
-        pygame.display.update()
+        value = self.font.render(self.characteristic + ': ' + str(self.value), True, self.txt_color)
+        self.surface.blit(value, (self.bounds.x - self.width + 10, self.bounds.y - self.height))
 
 
 """IN FUNCTION DRAW IN THIRD PARAMETR IS TUPLE WHERE FIRST TWO ARGUMENTS ARE X AND Y COORDINATES OF 
