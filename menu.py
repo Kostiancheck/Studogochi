@@ -2,7 +2,7 @@ import pygame
 from game_object import GameObject
 from exception import *
 from interface_draw import IDraw
-
+import random as r
 
 class Menu(GameObject, IDraw):
     def __init__(self, x, y, width, height, text_color, color, screen, clocks):
@@ -76,9 +76,54 @@ class InfoGameover(GameObject, IDraw):
         self.gamer.statistics['money'] = 1000
         self.gamer.statistics['alcohol'] = 10
         for i in self.gamer.statistics.keys():
-            self.gamer.update_statistic(i, 0, self.screen)
+            self.gamer.update_statistic(i, 0)
         self.gamer.update_grades(0)
         self.clocks.days = 0
+
+    def print_death_screen(self, str1):
+            sizes = self.draw(self.screen)
+            font_1 = pygame.font.Font('fonts/Indie_Flower/IndieFlower.ttf', 50)
+            game_over_str = font_1.render("Game over", True,
+                                            self.txt_color,
+                                            self.color)
+            game_over_str.set_colorkey(self.color)
+            self.screen.blit(game_over_str, (sizes[0]+(self.width/2)-110, sizes[1]+20))
+            surf = pygame.image.load('images/coffin.png')
+            a = (self.width-147)/2
+            b = (self.height-252)/2
+            rect = surf.get_rect(bottomright=(a+200,b+252))
+            self.screen.blit(surf, rect)
+            game_over_why = self.font.render(str1, True,
+                                            self.txt_color,
+                                            self.color)
+            game_over_why.set_colorkey(self.color)
+            self.screen.blit(game_over_why, (sizes[0]+(self.width/2)-170, sizes[1]+400))
+            game_over_exit = self.font.render("Presss Esc to exit R to restart", True,
+                                            self.txt_color,
+                                            self.color)
+            game_over_exit.set_colorkey(self.color)
+            self.screen.blit(game_over_exit, (sizes[0]+(self.width/2)-190, sizes[1]+450))
+            self.game_end = True
+            pygame.display.update()
+
+    def big_value(self, stat, num, value):
+        if (num + value) > 100 \
+                and (stat == 'health' or stat == 'fatigue'):
+            random_num = r.randint(1,200)
+            if random_num%19 == 11:
+                self.print_death_screen('You shouldn\'t click so much')
+            return True
+        elif (num + value) > 5000 and stat == 'money':
+            random_num = r.randint(1,200)
+            if random_num%19 == 11:
+                self.print_death_screen('You couldn\'t earndet this amount of money')
+            return True
+        elif (num + value) > 30 and stat == 'alcohol':
+            random_num = r.randint(1,200)
+            if random_num%19 == 11:
+                self.print_death_screen('Your parents took you home :(')
+            return True
+        
 
     def is_end(self, stat, num):
         try:

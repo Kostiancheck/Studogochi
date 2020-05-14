@@ -163,24 +163,24 @@ class Studogochi(Game):
 
                     # Уменьшаем значения
                     elif event.type == self.HEALTH_DECREASE:
-                        self.gamer.update_statistic('health', -5, self.screen)
+                        self.gamer.update_statistic('health', -5)
                     elif event.type == self.FATIGUE_DECREASE:
-                        self.gamer.update_statistic('fatigue', -8, self.screen)
+                        self.gamer.update_statistic('fatigue', -8)
                     elif event.type == self.MONEY_DECREASE:
-                        self.gamer.update_statistic('money', -7, self.screen)
+                        self.gamer.update_statistic('money', -7)
                     elif event.type == self.ALCOHOL_DECREASE:
-                        self.gamer.update_statistic('alcohol', -6, self.screen)
+                        self.gamer.update_statistic('alcohol', -6)
                     elif event.type == self.GRADES:
                         self.gamer.update_grades(0)
 
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('health', 10, self.screen)
+                        self.gamer.update_statistic('health', 10)
                     elif (self.button_fatigue.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('fatigue', 10, self.screen)
+                        self.gamer.update_statistic('fatigue', 10)
                     elif (self.button_grades.push(pos[0], pos[1], click[0], self.screen) is True):
                         self.gamer.update_grades(2)
                     elif (self.button_money.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('money', 10, self.screen)
+                        self.gamer.update_statistic('money', 10)
                     elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('alcohol', 10, self.screen)
+                        self.gamer.update_statistic('alcohol', 10)
