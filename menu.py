@@ -16,7 +16,6 @@ class Menu(GameObject, IDraw):
 
     def draw(self, surface):
         surface.fill(self.color)
-        #pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
 
     def open_menu(self, background_image, trigger):
         if trigger:

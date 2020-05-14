@@ -7,6 +7,7 @@ from game import Game
 import datetime
 import time
 from menu import *
+from random_events import *
 
 WHITE = (255, 255, 255)
 TIMER_DAYS = 5  # ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ
@@ -62,6 +63,8 @@ class Studogochi(Game):
                                      clocks=self.clocks, screen=self.screen, size_of_window=SIZE_OF_WINDOW)
         self.menu = Menu(x=0, y=0, width=SIZE_OF_WINDOW[0], height=SIZE_OF_WINDOW[1], text_color=(25, 25, 25),
                          color=(243, 243, 243, 140), screen=self.screen, clocks=self.clocks)
+        self.health_event = RandomEventHealth(x=250, y=160, width=550, height=550, screen=self.screen,
+                                            days = self.clocks, gamer = self.gamer, size_of_window = SIZE_OF_WINDOW)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
@@ -88,7 +91,6 @@ class Studogochi(Game):
         timer_value = self.timer.font.render(str(self.clocks.days), True,
                                              self.timer.txt_color)
         self.timer.draw(timer_value, self.clocks.days)
-
         pygame.display.update()
 
     def run(self):
@@ -145,6 +147,7 @@ class Studogochi(Game):
                     self.clocks.previous_time = datetime.datetime.now()
                     self.draw_all()
                     self.clock.tick(60)
+                    self.health_event.random_event()
                 self.draw_all()
                 self.clock.tick(60)
                 # pygame.time.delay(100) #я не знаю зачем нам нужна это строчка
