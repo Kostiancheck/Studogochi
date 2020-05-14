@@ -88,6 +88,7 @@ class Timer(AStatusBar):
 
 
 class Clocks:
-    def __init__(self, days, previous_time):
+    def __init__(self, days, previous_time, hours):
+        self.hours = hours
         self.days = days
         self.previous_time = previous_time

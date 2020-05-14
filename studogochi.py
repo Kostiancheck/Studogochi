@@ -10,9 +10,9 @@ from menu import *
 from random_events import *
 
 WHITE = (255, 255, 255)
-TIMER_DAYS = 5  # ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ
+TIMER_DAYS = 10  # ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ
 SIZE_OF_WINDOW = (640, 660)
-
+HOURS = 1
 
 class Studogochi(Game):
     def __init__(self):
@@ -57,7 +57,7 @@ class Studogochi(Game):
                                                characteristic='alcohol')
         self.timer = Timer(x=270, y=400, width=120, height=90, surface=self.screen,
                            txt_color=(0, 0, 0), value=0, background='images/calendar.png')  # ADDED
-        self.clocks = Clocks(0, datetime.datetime.now())
+        self.clocks = Clocks(0, datetime.datetime.now(), 0)
         self.gameover = InfoGameover(x=250, y=160, width=550, height=550,
                                      color=(255, 255, 255), txt_color=(0, 0, 0), value=0, gamer=self.gamer,
                                      clocks=self.clocks, screen=self.screen, size_of_window=SIZE_OF_WINDOW)
@@ -94,6 +94,11 @@ class Studogochi(Game):
         pygame.display.update()
 
     def run(self):
+        fagitur = 0
+        money = 0
+        alcohol = 0
+        health = 0
+        mark = 0
         pygame.display.set_caption('Studogochi')
         run = True
         m_open = False
@@ -151,6 +156,10 @@ class Studogochi(Game):
                 self.draw_all()
                 self.clock.tick(60)
                 # pygame.time.delay(100) #я не знаю зачем нам нужна это строчка
+                if int(x[1]) < HOURS:
+                    pass
+                else:
+                    self.clocks.hours += 1
 
                 for event in pygame.event.get():
                     pos = pygame.mouse.get_pos()
@@ -178,12 +187,32 @@ class Studogochi(Game):
 
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('health', 10)
+                        if self.clocks.hours > health:
+                            health = self.clocks.hours+50
+                            self.gamer.update_statistic('health', 10)
+                        else:
+                            pass
                     elif (self.button_fatigue.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('fatigue', 10)
+                        if self.clocks.hours > fagitur:
+                            fagitur = self.clocks.hours+40
+                            self.gamer.update_statistic('fatigue', 10)
+                        else:
+                            pass
                     elif (self.button_grades.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_grades(2)
+                        if self.clocks.hours > mark:
+                            mark = self.clocks.hours+80
+                            self.gamer.update_grades(2)
+                        else:
+                            pass
                     elif (self.button_money.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('money', 10)
+                        if self.clocks.days > money:
+                            money = self.clocks.days
+                            self.gamer.update_statistic('money', 10)
+                        else:
+                            pass
                     elif (self.button_alcohol.push(pos[0], pos[1], click[0], self.screen) is True):
-                        self.gamer.update_statistic('alcohol', 10)
+                        if self.clocks.days > alcohol:
+                            alcohol = self.clocks.days
+                            self.gamer.update_statistic('alcohol', 10)
+                        else:
+                            pass
