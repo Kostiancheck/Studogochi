@@ -7,9 +7,12 @@ import time
 
 
 class Student(GameObject, IDraw):
-    def __init__(self, x, y, width, height, name, image, surface):
+    def __init__(self, x, y, name_x, name_y,  width, height, name, name_background, image, surface):
         super().__init__(x, y, width, height)
         self._name = name
+        self.name_x = name_x
+        self.name_y = name_y
+        self.name_background = name_background
         self.image = image
         self.statistics = {'health': 100,
                            'fatigue': 100,
@@ -57,6 +60,15 @@ class Student(GameObject, IDraw):
         surf = pygame.transform.scale(surf, (self.width, self.height))
         rect = surf.get_rect(bottomright=(self.bounds.x, self.bounds.y))
         self.surface.blit(surf, rect)
-        text = self.font.render(str(self._name), True, (255, 0, 0),
-                                (255, 255, 255))
-        self.surface.blit(text, (self.bounds.x - 130, self.bounds.y))
+
+        surf_back = pygame.image.load(self.name_background)
+        rect = surf_back.get_rect(topleft=(self.name_x, self.name_y))
+        self.surface.blit(surf_back, rect)
+
+        text = self.font.render(str(self._name), True, (255, 255, 255))
+        self.surface.blit(text, (self.name_x + 10, self.name_y + 3))
+
+        # text = font.render("Hello There", 1, (10, 10, 10))
+        # textpos = text.get_rect()
+        # textpos.centerx = background.get_rect().centerx
+        # background.blit(text, textpos)

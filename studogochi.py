@@ -14,6 +14,7 @@ TIMER_DAYS = 10  # ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКА�
 SIZE_OF_WINDOW = (640, 660)
 HOURS = 1
 
+
 class Studogochi(Game):
     def __init__(self):
         pygame.init()
@@ -22,40 +23,43 @@ class Studogochi(Game):
         self.buttons_background = pygame.image.load('images/backgrounds/buttons_back.png')
         self.clock = pygame.time.Clock()
         self.objects = []
-        self.gamer = Student(x=620, y=542, width=270, height=420, name='Bob', image='images/student_female.png',
-                             surface=self.screen)
+        self.gamer = Student(x=620, y=542, width=250, height=390, name='Bob', image='images/student_male.png',
+                             name_background='images/backgrounds/name_back.png', surface=self.screen,
+                             name_x=20, name_y=230)
 
+        self.button_alcohol = Button(x=149, y=646, width=90, height=90, image='images/buttons/drink_button.png',
+                                     characteristic='alcohol', surface=self.screen)
         self.button_health = Button(x=257, y=646, width=90, height=90, image='images/buttons/eat_button.png',
                                     characteristic='health', surface=self.screen)
-        self.button_fatigue = Button(x=582, y=646, width=90, height=90, image='images/buttons/sleep_button.png',
-                                     characteristic='fatigue', surface=self.screen)
         self.button_grades = GradesButton(x=365, y=646, width=90, height=90, image='images/buttons/study_button.png',
                                           characteristic='grades', surface=self.screen)
         self.button_money = Button(x=473, y=646, width=90, height=90, image='images/buttons/money_button.png',
                                    characteristic='money', surface=self.screen)
-        self.button_alcohol = Button(x=149, y=646, width=90, height=90, image='images/buttons/drink_button.png',
-                                     characteristic='alcohol', surface=self.screen)
-        self.statusbar_health = StatusAlcohol(x=350, y=150, width=290, height=65, txt_color=WHITE,
-                                              value=self.gamer.statistics['health'], surface=self.screen,
-                                              background='images/backgrounds/health_back.png',
-                                              characteristic='health')
-        self.statusbar_fatigue = StatusFatigue(x=640, y=150, width=290, height=65, txt_color=WHITE,
-                                               value=self.gamer.statistics['fatigue'], surface=self.screen,
-                                               background='images/backgrounds/fatigue_back.png',
-                                               characteristic='fatigue')
-        self.statusbar_grades = StatusGrades(x=350, y=225, width=290, height=65, txt_color=WHITE,
-                                             value=self.gamer.statistics['grades'], surface=self.screen,
-                                             background='images/backgrounds/grades_back.png',
-                                             characteristic='grades')
-        self.statusbar_money = StatusMoney(x=640, y=75, width=290, height=65, txt_color=WHITE,
-                                           value=self.gamer.statistics['money'], surface=self.screen,
-                                           background='images/backgrounds/money_back.png',
-                                           characteristic='money')
-        self.statusbar_alcohol = StatusAlcohol(x=350, y=75, width=290, height=65, txt_color=WHITE,
-                                               value=self.gamer.statistics['alcohol'], surface=self.screen,
-                                               background='images/backgrounds/alcohol_back.png',
-                                               characteristic='alcohol')
-        self.timer = Timer(x=270, y=400, width=120, height=90, surface=self.screen,
+        self.button_fatigue = Button(x=582, y=646, width=90, height=90, image='images/buttons/sleep_button.png',
+                                     characteristic='fatigue', surface=self.screen)
+
+        self.statusbar_alcohol = StatusBar(x=20, y=10, width=290, height=65, txt_color=WHITE,
+                                           value=self.gamer.statistics['alcohol'], surface=self.screen,
+                                           background='images/backgrounds/alcohol_back.png',
+                                           characteristic='alcohol')
+        self.statusbar_health = StatusBar(x=20, y=85, width=290, height=65, txt_color=WHITE,
+                                          value=self.gamer.statistics['health'], surface=self.screen,
+                                          background='images/backgrounds/health_back.png',
+                                          characteristic='health')
+        self.statusbar_grades = StatusBar(x=20, y=160, width=290, height=65, txt_color=WHITE,
+                                          value=self.gamer.statistics['grades'], surface=self.screen,
+                                          background='images/backgrounds/grades_back.png',
+                                          characteristic='grades')
+        self.statusbar_money = StatusBar(x=330, y=10, width=290, height=65, txt_color=WHITE,
+                                         value=self.gamer.statistics['money'], surface=self.screen,
+                                         background='images/backgrounds/money_back.png',
+                                         characteristic='money')
+        self.statusbar_fatigue = StatusBar(x=330, y=85, width=290, height=65, txt_color=WHITE,
+                                           value=self.gamer.statistics['fatigue'], surface=self.screen,
+                                           background='images/backgrounds/fatigue_back.png',
+                                           characteristic='fatigue')
+
+        self.timer = Timer(x=150, y=310, width=120, height=90, surface=self.screen,
                            txt_color=(0, 0, 0), value=0, background='images/calendar.png')  # ADDED
         self.clocks = Clocks(0, datetime.datetime.now(), 0)
         self.gameover = InfoGameover(x=250, y=160, width=550, height=550,
@@ -64,7 +68,7 @@ class Studogochi(Game):
         self.menu = Menu(x=0, y=0, width=SIZE_OF_WINDOW[0], height=SIZE_OF_WINDOW[1], text_color=(25, 25, 25),
                          color=(243, 243, 243, 140), screen=self.screen, clocks=self.clocks)
         self.health_event = RandomEventHealth(x=250, y=160, width=550, height=550, screen=self.screen,
-                                              days = self.clocks, gamer = self.gamer, size_of_window = SIZE_OF_WINDOW)
+                                              days=self.clocks, gamer=self.gamer, size_of_window=SIZE_OF_WINDOW)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
@@ -110,7 +114,7 @@ class Studogochi(Game):
 
         self.gamer.subscribe('health', self.statusbar_health)  # TODO возможно не нужно каждый раз их подписывать
         self.gamer.subscribe('fatigue', self.statusbar_fatigue)
-        self.gamer.subscribe('grades', self.statusbar_grades)  # Вынести названия статусбаров в список и подписывать их в цикле
+        self.gamer.subscribe('grades', self.statusbar_grades)
         self.gamer.subscribe('money', self.statusbar_money)
         self.gamer.subscribe('alcohol', self.statusbar_alcohol)
         self.gamer.subscribe('gameover', self.gameover)
@@ -118,9 +122,6 @@ class Studogochi(Game):
         while run:
             if self.gameover.game_end:
                 for event in pygame.event.get():
-                    pos = pygame.mouse.get_pos()
-                    click = pygame.mouse.get_pressed()
-
                     if event.type == pygame.QUIT:
                         run = False
                     if event.type == pygame.KEYDOWN:
@@ -188,19 +189,19 @@ class Studogochi(Game):
                     # Нажатие кнопок
                     elif (self.button_health.push(pos[0], pos[1], click[0], self.screen) is True):
                         if self.clocks.hours > health:
-                            health = self.clocks.hours+50
+                            health = self.clocks.hours + 50
                             self.gamer.update_statistic('health', 10)
                         else:
                             pass
                     elif (self.button_fatigue.push(pos[0], pos[1], click[0], self.screen) is True):
                         if self.clocks.hours > fagitur:
-                            fagitur = self.clocks.hours+40
+                            fagitur = self.clocks.hours + 40
                             self.gamer.update_statistic('fatigue', 10)
                         else:
                             pass
                     elif (self.button_grades.push(pos[0], pos[1], click[0], self.screen) is True):
                         if self.clocks.hours > mark:
-                            mark = self.clocks.hours+80
+                            mark = self.clocks.hours + 80
                             self.gamer.update_grades(2)
                         else:
                             pass

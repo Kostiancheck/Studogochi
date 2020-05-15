@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/fonts/Press_Start_2P/OFL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Press_Start_2P/PressStart2P-Regular.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statusbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusbar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/student.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studogochi.py" beforeDir="false" afterPath="$PROJECT_DIR$/studogochi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,15 +46,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oop_coursera" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fonts" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kostian\PycharmProjects\OOP\images" />
       <recent name="C:\Users\Kostian\PycharmProjects\OOP\fonts" />
+      <recent name="C:\Users\Kostian\PycharmProjects\OOP\images" />
       <recent name="C:\Users\Kostian\PycharmProjects\OOP" />
     </key>
   </component>
@@ -203,6 +208,9 @@
       <workItem from="1589397390130" duration="983000" />
       <workItem from="1589398383708" duration="45000" />
       <workItem from="1589449323617" duration="1336000" />
+      <workItem from="1589532490660" duration="991000" />
+      <workItem from="1589536021816" duration="2680000" />
+      <workItem from="1589570225574" duration="8045000" />
     </task>
     <task id="LOCAL-00001" summary="Fix problem with statusbar's value">
       <created>1585590613188</created>
@@ -285,12 +293,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix problem with statusbar's value" />
@@ -318,10 +327,10 @@
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.688@0.0.1280.688" timestamp="1589130624254" />
     <state x="210" y="34" key="#com.intellij.execution.impl.EditConfigurationsDialog/71.34.1849.1046@71.34.1849.1046" timestamp="1588866925562" />
-    <state x="390" y="147" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588796132241">
+    <state x="390" y="147" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589575435577">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="390" y="147" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.688@0.0.1280.688" timestamp="1588796132241" />
+    <state x="390" y="147" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.688@0.0.1280.688" timestamp="1589575435577" />
     <state x="282" y="111" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1587819921198">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -403,14 +412,14 @@
       <screen x="71" y="34" width="1849" height="1046" />
     </state>
     <state x="771" y="191" width="439" height="729" key="RollbackChangesDialog/71.34.1849.1046@71.34.1849.1046" timestamp="1589485211266" />
-    <state x="164" y="0" key="SettingsEditor" timestamp="1589398427775">
+    <state x="164" y="0" key="SettingsEditor" timestamp="1589576313098">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1589398427775" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589403403773">
+    <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1589576313098" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589532550414">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589403403773" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589532550414" />
     <state x="721" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589484869096">
       <screen x="71" y="34" width="1849" height="1046" />
     </state>
@@ -424,10 +433,10 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="424" y="57" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.688@0.0.1280.688" timestamp="1588625051489" />
-    <state x="366" y="136" key="git4idea.merge.GitPullDialog" timestamp="1589397504691">
+    <state x="366" y="136" key="git4idea.merge.GitPullDialog" timestamp="1589532571316">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="366" y="136" key="git4idea.merge.GitPullDialog/0.0.1280.688@0.0.1280.688" timestamp="1589397504691" />
+    <state x="366" y="136" key="git4idea.merge.GitPullDialog/0.0.1280.688@0.0.1280.688" timestamp="1589532571316" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1585341515591">
       <screen x="0" y="0" width="1280" height="688" />
     </state>

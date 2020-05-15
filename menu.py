@@ -4,6 +4,7 @@ from exception import *
 from interface_draw import IDraw
 import random as r
 
+
 class Menu(GameObject, IDraw):
     def __init__(self, x, y, width, height, text_color, color, screen, clocks):
         super().__init__(x, y, width, height)
@@ -21,8 +22,8 @@ class Menu(GameObject, IDraw):
         if trigger:
             self.draw(self.screen)
             self.screen.blit(pygame.font.Font('fonts/Montserrat-Thin.ttf', 45).render(
-                    'MENU', True, self.text_color), ((self.width/2)-70, 20))
-            pygame.draw.rect(self.screen, (25,25,25), (40, 80, self.width - 80, 1))
+                'MENU', True, self.text_color), ((self.width / 2) - 70, 20))
+            pygame.draw.rect(self.screen, (25, 25, 25), (40, 80, self.width - 80, 1))
             data = list()
             data.append(["F1", "Show/Close Help"])
             data.append(["Esc", "Exit Game"])
@@ -36,11 +37,11 @@ class Menu(GameObject, IDraw):
             pygame.display.update()
         else:
             self.screen.blit(background_image, (0, 0))
-           
 
 
 class InfoGameover(GameObject, IDraw):
-    def __init__(self, x, y, width, height, color, txt_color, value, gamer, clocks, screen, size_of_window, surface=None):
+    def __init__(self, x, y, width, height, color, txt_color, value, gamer, clocks, screen, size_of_window,
+                 surface=None):
         super().__init__(x, y, width, height)
         self.color = color
         self.value = value
@@ -57,12 +58,12 @@ class InfoGameover(GameObject, IDraw):
     def draw(self, surface):
         surf = pygame.image.load('images/backgrounds/gameover_back.png')
         surf = pygame.transform.scale(surf, (self.width, self.height))
-        a = (self.size_of_window[0]-self.width)/2
-        b = (self.size_of_window[1]-self.height)/2
-        rect = surf.get_rect(bottomright=(self.width+a, self.height+b))
+        a = (self.size_of_window[0] - self.width) / 2
+        b = (self.size_of_window[1] - self.height) / 2
+        rect = surf.get_rect(bottomright=(self.width + a, self.height + b))
         surface.blit(surf, rect)
         return (a, b)
-        #pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
+        # pygame.draw.rect(surface, self.color, (self.bounds.x, self.bounds.y, self.bounds.width, self.bounds.height))
 
     def update_status(self, char, num):
         self.is_end(char, num)
@@ -80,49 +81,48 @@ class InfoGameover(GameObject, IDraw):
         self.clocks.days = 0
 
     def print_death_screen(self, str1):
-            sizes = self.draw(self.screen)
-            font_1 = pygame.font.Font('fonts/Indie_Flower/IndieFlower.ttf', 50)
-            game_over_str = font_1.render("Game over", True,
-                                            self.txt_color,
-                                            self.color)
-            game_over_str.set_colorkey(self.color)
-            self.screen.blit(game_over_str, (sizes[0]+(self.width/2)-110, sizes[1]+20))
-            surf = pygame.image.load('images/coffin.png')
-            a = (self.width-147)/2
-            b = (self.height-252)/2
-            rect = surf.get_rect(bottomright=(a+200,b+252))
-            self.screen.blit(surf, rect)
-            game_over_why = self.font.render(str1, True,
-                                            self.txt_color,
-                                            self.color)
-            game_over_why.set_colorkey(self.color)
-            self.screen.blit(game_over_why, (sizes[0]+(self.width/2)-170, sizes[1]+400))
-            game_over_exit = self.font.render("Presss Esc to exit R to restart", True,
-                                            self.txt_color,
-                                            self.color)
-            game_over_exit.set_colorkey(self.color)
-            self.screen.blit(game_over_exit, (sizes[0]+(self.width/2)-190, sizes[1]+450))
-            self.game_end = True
-            pygame.display.update()
+        sizes = self.draw(self.screen)
+        font_1 = pygame.font.Font('fonts/Press_Start_2P/PressStart2P-Regular.ttf', 30)
+        game_over_str = font_1.render("Game over", True,
+                                      self.txt_color,
+                                      self.color)
+        game_over_str.set_colorkey(self.color)
+        self.screen.blit(game_over_str, (sizes[0] + (self.width / 2) - 120, sizes[1] + 20))
+        surf = pygame.image.load('images/coffin.png')
+        a = (self.width - 147) / 2
+        b = (self.height - 252) / 2
+        rect = surf.get_rect(bottomright=(a + 200, b + 252))
+        self.screen.blit(surf, rect)
+        game_over_why = self.font.render(str1, True,
+                                         self.txt_color,
+                                         self.color)
+        game_over_why.set_colorkey(self.color)
+        self.screen.blit(game_over_why, (sizes[0] + (self.width / 2) - 170, sizes[1] + 400))
+        game_over_exit = self.font.render("Presss Esc to exit R to restart", True,
+                                          self.txt_color,
+                                          self.color)
+        game_over_exit.set_colorkey(self.color)
+        self.screen.blit(game_over_exit, (sizes[0] + (self.width / 2) - 190, sizes[1] + 450))
+        self.game_end = True
+        pygame.display.update()
 
     def big_value(self, stat, num, value):
         if (num + value) > 100 \
                 and (stat == 'health' or stat == 'fatigue'):
-            random_num = r.randint(1,200)
-            if random_num%19 == 11:
+            random_num = r.randint(1, 200)
+            if random_num % 19 == 11:
                 self.print_death_screen('You shouldn\'t click so much')
             return True
         elif (num + value) > 5000 and stat == 'money':
-            random_num = r.randint(1,200)
-            if random_num%19 == 11:
+            random_num = r.randint(1, 200)
+            if random_num % 19 == 11:
                 self.print_death_screen('You couldn\'t earndet this amount of money')
             return True
         elif (num + value) > 30 and stat == 'alcohol':
-            random_num = r.randint(1,200)
-            if random_num%19 == 11:
+            random_num = r.randint(1, 200)
+            if random_num % 19 == 11:
                 self.print_death_screen('Your parents took you home :(')
             return True
-        
 
     def is_end(self, stat, num):
         try:
@@ -135,52 +135,52 @@ class InfoGameover(GameObject, IDraw):
 
         except NegativeStatisticGrades as n:
             sizes = self.draw(self.screen)
-            font_1 = pygame.font.Font('fonts/Indie_Flower/IndieFlower.ttf', 50)
+            font_1 = pygame.font.Font('fonts/Press_Start_2P/PressStart2P-Regular.ttf', 30)
             game_over_str = font_1.render("Game over", True,
-                                             self.txt_color,
-                                             self.color)
+                                          self.txt_color,
+                                          self.color)
             game_over_str.set_colorkey(self.color)
-            self.screen.blit(game_over_str, (sizes[0]+(self.width/2)-110, sizes[1]+20))
+            self.screen.blit(game_over_str, (sizes[0] + (self.width / 2) - 120, sizes[1] + 20))
             surf = pygame.image.load('images/coffin.png')
-            a = (self.width-147)/2
-            b = (self.height-252)/2
-            rect = surf.get_rect(bottomright=(a+200,b+252))
+            a = (self.width - 147) / 2
+            b = (self.height - 252) / 2
+            rect = surf.get_rect(bottomright=(a + 200, b + 252))
             self.screen.blit(surf, rect)
             game_over_why = self.font.render("You are in the army now", True,
                                              self.txt_color,
                                              self.color)
             game_over_why.set_colorkey(self.color)
-            self.screen.blit(game_over_why, (sizes[0]+(self.width/2)-170, sizes[1]+400))
+            self.screen.blit(game_over_why, (sizes[0] + (self.width / 2) - 170, sizes[1] + 400))
             game_over_exit = self.font.render("Presss Esc to exit R to restart", True,
                                               self.txt_color,
                                               self.color)
             game_over_exit.set_colorkey(self.color)
-            self.screen.blit(game_over_exit, (sizes[0]+(self.width/2)-190, sizes[1]+450))
+            self.screen.blit(game_over_exit, (sizes[0] + (self.width / 2) - 190, sizes[1] + 450))
             self.game_end = True
             pygame.display.update()
 
         except NegativeStatistic as m:
             sizes = self.draw(self.screen)
-            font_1 = pygame.font.Font('fonts/Indie_Flower/IndieFlower.ttf', 50)
+            font_1 = pygame.font.Font('fonts/Press_Start_2P/PressStart2P-Regular.ttf', 30)
             game_over_str = font_1.render("Game over", True,
-                                             self.txt_color,
-                                             self.color)
+                                          self.txt_color,
+                                          self.color)
             game_over_str.set_colorkey(self.color)
-            self.screen.blit(game_over_str, (sizes[0]+(self.width/2)-110, sizes[1]+20))
+            self.screen.blit(game_over_str, (sizes[0] + (self.width / 2) - 120, sizes[1] + 20))
             surf = pygame.image.load('images/coffin.png')
-            a = (self.width-147)/2
-            b = (self.height-252)/2
-            rect = surf.get_rect(bottomright=(a+200,b+252))
+            a = (self.width - 147) / 2
+            b = (self.height - 252) / 2
+            rect = surf.get_rect(bottomright=(a + 200, b + 252))
             self.screen.blit(surf, rect)
             game_over_why = self.font.render("You lose because of {}".format(m), True,
                                              self.txt_color,
                                              self.color)
             game_over_why.set_colorkey(self.color)
-            self.screen.blit(game_over_why, (sizes[0]+(self.width/2)-170, sizes[1]+400))
+            self.screen.blit(game_over_why, (sizes[0] + (self.width / 2) - 170, sizes[1] + 400))
             game_over_exit = self.font.render("Presss Esc to exit R to restart", True,
                                               self.txt_color,
                                               self.color)
             game_over_exit.set_colorkey(self.color)
-            self.screen.blit(game_over_exit, (sizes[0]+(self.width/2)-190, sizes[1]+450))
+            self.screen.blit(game_over_exit, (sizes[0] + (self.width / 2) - 190, sizes[1] + 450))
             self.game_end = True
             pygame.display.update()

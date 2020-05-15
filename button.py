@@ -2,7 +2,6 @@ import pygame
 from game_object import GameObject
 from abc import ABC, abstractmethod
 from interface_draw import IDraw
-from statusbar import StatusHealth
 import time
 
 
@@ -15,7 +14,6 @@ class AButton(GameObject, IDraw):
         self.characteristic = characteristic
         self.surface = surface
 
-
     def draw(self):
         button_icon = pygame.image.load(self.image)
         button_icon = pygame.transform.scale(button_icon, (self.width, self.height))
@@ -24,7 +22,7 @@ class AButton(GameObject, IDraw):
 
     def in_circle(self, mouse_x, mouse_y):
         if ((mouse_x - self.bounds.x + self.width / 2) ** 2 + \
-                (mouse_y - self.bounds.y + self.height / 2) ** 2 <= (self.height/2) ** 2):
+                (mouse_y - self.bounds.y + self.height / 2) ** 2 <= (self.height / 2) ** 2):
             return True
 
     def push(self, mouse_x, mouse_y, mouse_click, surface):
