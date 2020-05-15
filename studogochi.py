@@ -64,7 +64,7 @@ class Studogochi(Game):
         self.menu = Menu(x=0, y=0, width=SIZE_OF_WINDOW[0], height=SIZE_OF_WINDOW[1], text_color=(25, 25, 25),
                          color=(243, 243, 243, 140), screen=self.screen, clocks=self.clocks)
         self.health_event = RandomEventHealth(x=250, y=160, width=550, height=550, screen=self.screen,
-                                            days = self.clocks, gamer = self.gamer, size_of_window = SIZE_OF_WINDOW)
+                                              days = self.clocks, gamer = self.gamer, size_of_window = SIZE_OF_WINDOW)
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2

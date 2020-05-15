@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61152840-39ff-49f2-be0c-298d448b70ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/backgrounds/alcohol_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/backgrounds/alcohol_back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/backgrounds/grades_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/backgrounds/grades_back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/backgrounds/money_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/backgrounds/money_back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statusbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusbar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/student.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studogochi.py" beforeDir="false" afterPath="$PROJECT_DIR$/studogochi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +201,8 @@
       <workItem from="1589361694045" duration="2369000" />
       <workItem from="1589397390130" duration="983000" />
       <workItem from="1589398383708" duration="45000" />
-      <workItem from="1589449323617" duration="1336000" />
+      <workItem from="1589449323617" duration="1799000" />
+      <workItem from="1589483677084" duration="1299000" />
     </task>
     <task id="LOCAL-00001" summary="Fix problem with statusbar's value">
       <created>1585590613188</created>
@@ -278,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589403392463</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Do statosbars' backgrounds darker. Fix bag with statusbars' values">
+      <created>1589450851000</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589450851000</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +310,8 @@
     <MESSAGE value="Make beautiful buttons. Change width and height of main window, so we need to change menu coordinats. Add some pictures to the images folder" />
     <MESSAGE value="Add sleep_button.png, coffin.png and gameover_back.png" />
     <MESSAGE value="Add surface as class' attributes. Add statusbars' backgrounds. Add student_female.png. Replace calendar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add surface as class' attributes. Add statusbars' backgrounds. Add student_female.png. Replace calendar" />
+    <MESSAGE value="Do statosbars' backgrounds darker. Fix bag with statusbars' values" />
+    <option name="LAST_COMMIT_MESSAGE" value="Do statosbars' backgrounds darker. Fix bag with statusbars' values" />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="57" width="798" height="997" key="#Main" timestamp="1588500882640">
@@ -351,14 +355,14 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="389" y="200" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.688@0.0.1280.688" timestamp="1589361750568" />
-    <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1589403391786">
+    <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1589450850319">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1589403391786" />
-    <state x="116" y="22" width="1024" height="579" key="DiffContextDialog" timestamp="1589362015230">
+    <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1589450850319" />
+    <state x="116" y="22" width="1024" height="579" key="DiffContextDialog" timestamp="1589450827369">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="116" y="22" width="1024" height="579" key="DiffContextDialog/0.0.1280.688@0.0.1280.688" timestamp="1589362015230" />
+    <state x="116" y="22" width="1024" height="579" key="DiffContextDialog/0.0.1280.688@0.0.1280.688" timestamp="1589450827369" />
     <state x="135" y="111" key="FileChooserDialogImpl" timestamp="1589398415574">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -403,10 +407,10 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1589398427775" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589403403773">
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589450862042">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589403403773" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589450862042" />
     <state x="450" y="261" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588625020179">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -419,10 +423,10 @@
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="424" y="57" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.688@0.0.1280.688" timestamp="1588625051489" />
-    <state x="366" y="136" key="git4idea.merge.GitPullDialog" timestamp="1589397504691">
+    <state x="366" y="136" key="git4idea.merge.GitPullDialog" timestamp="1589483692802">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
-    <state x="366" y="136" key="git4idea.merge.GitPullDialog/0.0.1280.688@0.0.1280.688" timestamp="1589397504691" />
+    <state x="366" y="136" key="git4idea.merge.GitPullDialog/0.0.1280.688@0.0.1280.688" timestamp="1589483692802" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1585341515591">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
