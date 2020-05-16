@@ -59,6 +59,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.test">
     <configuration name="aaaaaa" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OOP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -125,6 +126,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OOP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OOP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,9 +175,11 @@
       <item itemvalue="Python.main" />
       <item itemvalue="Python.student" />
       <item itemvalue="Python.test1" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.aaaaaa" />
         <item itemvalue="Python.test1" />
@@ -211,6 +236,8 @@
       <workItem from="1589532490660" duration="991000" />
       <workItem from="1589536021816" duration="2680000" />
       <workItem from="1589570225574" duration="8045000" />
+      <workItem from="1589570225574" duration="8248000" />
+      <workItem from="1589642998402" duration="333000" />
     </task>
     <task id="LOCAL-00001" summary="Fix problem with statusbar's value">
       <created>1585590613188</created>
@@ -283,6 +310,14 @@
       <updated>1589403392463</updated>
     </task>
     <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Change 'Game over' font. Change statusbar coordinates. Change student name coord.">
+      <created>1589578416291</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589578416291</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +347,8 @@
     <MESSAGE value="Add sleep_button.png, coffin.png and gameover_back.png" />
     <MESSAGE value="Add surface as class' attributes. Add statusbars' backgrounds. Add student_female.png. Replace calendar" />
     <option name="LAST_COMMIT_MESSAGE" value="Add surface as class' attributes. Add statusbars' backgrounds. Add student_female.png. Replace calendar" />
+    <MESSAGE value="Change 'Game over' font. Change statusbar coordinates. Change student name coord." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 'Game over' font. Change statusbar coordinates. Change student name coord." />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="57" width="798" height="997" key="#Main" timestamp="1588500882640">
@@ -356,9 +393,11 @@
     </state>
     <state x="389" y="200" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.688@0.0.1280.688" timestamp="1589361750568" />
     <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1589403391786">
+    <state x="104" y="0" key="CommitChangelistDialog2" timestamp="1589578415798">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1589403391786" />
+    <state x="104" y="0" key="CommitChangelistDialog2/0.0.1280.688@0.0.1280.688" timestamp="1589578415798" />
     <state x="116" y="22" width="1024" height="579" key="DiffContextDialog" timestamp="1589362015230">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -370,23 +409,35 @@
     <state x="266" y="203" width="530" height="598" key="FileChooserDialogImpl/71.34.1849.1046@71.34.1849.1046" timestamp="1589479163291" />
     <state width="1821" height="269" key="GridCell.Tab.0.bottom" timestamp="1589487531527">
       <screen x="71" y="34" width="1849" height="1046" />
+    <state width="1237" height="161" key="GridCell.Tab.0.bottom" timestamp="1589643451773">
+      <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state width="529" height="161" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1589364201935" />
+    <state width="1237" height="161" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1589643451773" />
     <state width="1821" height="269" key="GridCell.Tab.0.bottom/71.34.1849.1046@71.34.1849.1046" timestamp="1589487531527" />
     <state width="1821" height="269" key="GridCell.Tab.0.center" timestamp="1589487531525">
       <screen x="71" y="34" width="1849" height="1046" />
+    <state width="1237" height="161" key="GridCell.Tab.0.center" timestamp="1589643451773">
+      <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state width="529" height="161" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1589364201935" />
+    <state width="1237" height="161" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1589643451773" />
     <state width="1821" height="269" key="GridCell.Tab.0.center/71.34.1849.1046@71.34.1849.1046" timestamp="1589487531525" />
     <state width="1821" height="269" key="GridCell.Tab.0.left" timestamp="1589487531523">
       <screen x="71" y="34" width="1849" height="1046" />
+    <state width="1237" height="161" key="GridCell.Tab.0.left" timestamp="1589643451772">
+      <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state width="529" height="161" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1589364201935" />
+    <state width="1237" height="161" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1589643451772" />
     <state width="1821" height="269" key="GridCell.Tab.0.left/71.34.1849.1046@71.34.1849.1046" timestamp="1589487531523" />
     <state width="1821" height="269" key="GridCell.Tab.0.right" timestamp="1589487531526">
       <screen x="71" y="34" width="1849" height="1046" />
+    <state width="1237" height="161" key="GridCell.Tab.0.right" timestamp="1589643451773">
+      <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state width="529" height="161" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1589364201935" />
+    <state width="1237" height="161" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1589643451773" />
     <state width="1821" height="269" key="GridCell.Tab.0.right/71.34.1849.1046@71.34.1849.1046" timestamp="1589487531526" />
     <state width="1237" height="207" key="GridCell.Tab.1.bottom" timestamp="1589134692411">
       <screen x="0" y="0" width="1280" height="688" />
@@ -417,18 +468,22 @@
     </state>
     <state x="164" y="0" key="SettingsEditor/0.0.1280.688@0.0.1280.688" timestamp="1589576313098" />
     <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589532550414">
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1589578424475">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589532550414" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.688@0.0.1280.688" timestamp="1589578424475" />
     <state x="721" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589484869096">
       <screen x="71" y="34" width="1849" height="1046" />
     </state>
     <state x="450" y="261" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.688@0.0.1280.688" timestamp="1588625020179" />
     <state x="721" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/71.34.1849.1046@71.34.1849.1046" timestamp="1589484869096" />
     <state x="24" y="0" width="612" height="688" key="find.popup" timestamp="1588956999251">
+    <state x="461" y="0" width="651" height="688" key="find.popup" timestamp="1589643092604">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
     <state x="24" y="0" width="612" height="688" key="find.popup/0.0.1280.688@0.0.1280.688" timestamp="1588956999251" />
+    <state x="461" y="0" width="651" height="688" key="find.popup/0.0.1280.688@0.0.1280.688" timestamp="1589643092604" />
     <state x="424" y="57" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588625051489">
       <screen x="0" y="0" width="1280" height="688" />
     </state>
@@ -445,5 +500,8 @@
       <screen x="71" y="34" width="1849" height="1046" />
     </state>
     <state x="575" y="24" width="840" height="1032" key="search.everywhere.popup/71.34.1849.1046@71.34.1849.1046" timestamp="1589480987358" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OOP$test.coverage" NAME="test Coverage Results" MODIFIED="1589643451763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
