@@ -111,8 +111,8 @@ class InfoGameover(GameObject, IDraw):
                 and (stat == 'health' or stat == 'fatigue'):
             random_num = r.randint(1, 200)
             if random_num % 19 == 11:
-                self.print_death_screen('You shouldn\'t click so much')
-            return True
+                self.print_death_screen('You shouldn\'t click so much') #This is the call of function print_death_scree
+            return True                                                 #with needed parametr
         elif (num + value) > 5000 and stat == 'money':
             random_num = r.randint(1, 200)
             if random_num % 19 == 11:
