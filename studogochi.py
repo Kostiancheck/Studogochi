@@ -8,6 +8,7 @@ import datetime
 import time
 from menu import *
 from random_events import *
+from save import *
 
 WHITE = (255, 255, 255)
 TIMER_DAYS = 10  # ЭТО ОТВЕЧАЕТ ЗА БЫСТРОТУ ПРОТЕКАНИЯ ДНЕЙ
@@ -69,6 +70,7 @@ class Studogochi(Game):
                          color=(243, 243, 243, 140), screen=self.screen, clocks=self.clocks)
         self.health_event = RandomEventHealth(x=250, y=160, width=550, height=550, screen=self.screen,
                                               days=self.clocks, gamer=self.gamer, size_of_window=SIZE_OF_WINDOW)
+        self.save = Save()
         self.HEALTH_DECREASE = pygame.USEREVENT  # TODO сделать эти переменные через список
         self.FATIGUE_DECREASE = pygame.USEREVENT + 1
         self.MONEY_DECREASE = pygame.USEREVENT + 2
@@ -98,6 +100,25 @@ class Studogochi(Game):
         pygame.display.update()
 
     def run(self):
+
+        self.gamer.subscribe('health', self.statusbar_health)  # TODO возможно не нужно каждый раз их подписывать
+        self.gamer.subscribe('fatigue', self.statusbar_fatigue)
+        self.gamer.subscribe('grades', self.statusbar_grades)
+        self.gamer.subscribe('money', self.statusbar_money)
+        self.gamer.subscribe('alcohol', self.statusbar_alcohol)
+        self.gamer.subscribe('gameover', self.gameover)
+
+        # load from json
+        if not self.save.dir_is_empty():
+            self.save.load(gamer=self.gamer, clocks=self.clocks)
+
+        # Костыль который надо пофиксить
+        self.gamer.update_statistic('health', 0)
+        self.gamer.update_statistic('fatigue', 0)
+        self.gamer.update_statistic('money', 0)
+        self.gamer.update_statistic('alcohol', 0)
+        self.gamer.update_grades(0)
+
         fagitur = 0
         money = 0
         alcohol = 0
@@ -112,12 +133,6 @@ class Studogochi(Game):
         pygame.time.set_timer(self.ALCOHOL_DECREASE, 35000)
         pygame.time.set_timer(self.GRADES, 10000)
 
-        self.gamer.subscribe('health', self.statusbar_health)  # TODO возможно не нужно каждый раз их подписывать
-        self.gamer.subscribe('fatigue', self.statusbar_fatigue)
-        self.gamer.subscribe('grades', self.statusbar_grades)
-        self.gamer.subscribe('money', self.statusbar_money)
-        self.gamer.subscribe('alcohol', self.statusbar_alcohol)
-        self.gamer.subscribe('gameover', self.gameover)
 
         while run:
             if self.gameover.game_end:
@@ -134,9 +149,13 @@ class Studogochi(Game):
                 self.menu.open_menu(self.background_image, m_open)
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
+                        self.save.save(gamer=self.gamer, clocks=self.clocks)
+                        pygame.quit()
                         run = False
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
+                            self.save.save(gamer=self.gamer, clocks=self.clocks)
+                            pygame.quit()
                             run = False
                         if event.key == pygame.K_F1:
                             m_open = False
@@ -167,9 +186,13 @@ class Studogochi(Game):
                     click = pygame.mouse.get_pressed()
 
                     if event.type == pygame.QUIT:
+                        self.save.save(gamer=self.gamer, clocks=self.clocks)
+                        pygame.quit()
                         run = False
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
+                            self.save.save(gamer=self.gamer, clocks=self.clocks)
+                            pygame.quit()
                             run = False
                         if event.key == pygame.K_F1:
                             m_open = True

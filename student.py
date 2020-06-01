@@ -52,8 +52,7 @@ class Student(GameObject, IDraw):
 
     @name.setter
     def name(self, value):
-        print("You can't do this operation!")
-        return 0
+        self._name = value
 
     def draw(self):
         surf = pygame.image.load(self.image)
