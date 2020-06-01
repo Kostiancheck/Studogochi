@@ -1,0 +1,9 @@
+{
+  "health": 60,
+  "fatigue": 36,
+  "grades": 12,
+  "money": 986,
+  "alcohol": 10,
+  "name": "Bob",
+  "days": 5
+}
