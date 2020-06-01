@@ -27,6 +27,10 @@ class Save:
             for characteristics in gamer.statistics:
                 gamer.statistics[characteristics] = data[characteristics]
 
+    def remove(self, gamer, directory='saves'):
+
+        file_path = directory + '/' + gamer.name + '.json'
+        os.remove(file_path)
 
     def dir_is_empty(self, directory='saves'):
 

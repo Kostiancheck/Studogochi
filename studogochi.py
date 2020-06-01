@@ -138,11 +138,14 @@ class Studogochi(Game):
             if self.gameover.game_end:
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
+                        self.save.remove(gamer=self.gamer)
                         run = False
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
+                            self.save.remove(gamer=self.gamer)
                             run = False
                         if event.key == pygame.K_r:
+                            self.save.remove(gamer=self.gamer)
                             self.gameover.restart()
                             self.draw_all()
             elif m_open:
