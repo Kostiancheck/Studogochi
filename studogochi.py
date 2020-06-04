@@ -101,7 +101,7 @@ class Studogochi(Game):
 
     def run(self):
 
-        self.gamer.subscribe('health', self.statusbar_health)  # TODO возможно не нужно каждый раз их подписывать
+        self.gamer.subscribe('health', self.statusbar_health)
         self.gamer.subscribe('fatigue', self.statusbar_fatigue)
         self.gamer.subscribe('grades', self.statusbar_grades)
         self.gamer.subscribe('money', self.statusbar_money)
@@ -111,13 +111,6 @@ class Studogochi(Game):
         # load from json
         if not self.save.dir_is_empty():
             self.save.load(gamer=self.gamer, clocks=self.clocks)
-
-        # Костыль который надо пофиксить
-        self.gamer.update_statistic('health', 0)
-        self.gamer.update_statistic('fatigue', 0)
-        self.gamer.update_statistic('money', 0)
-        self.gamer.update_statistic('alcohol', 0)
-        self.gamer.update_grades(0)
 
         fagitur = 0
         money = 0

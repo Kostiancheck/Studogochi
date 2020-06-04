@@ -26,6 +26,10 @@ class Save:
             clocks.days = data['days']
             for characteristics in gamer.statistics:
                 gamer.statistics[characteristics] = data[characteristics]
+                if characteristics != 'grades':
+                    gamer.update_statistic(characteristics, 0)
+                else:
+                    gamer.update_grades(0)
 
     def remove(self, gamer, directory='saves'):
 
